@@ -26,7 +26,7 @@ body {
     height: 0.5%;
     width: 80%;
     left: 10%;
-    background-image: linear-gradient(to left, #3e7531, #749a6a);
+    background-image: linear-gradient(to right, #3e7531 10%, #409954 30%, #749a6a 100%);
     border-style: none;
     border-radius: 0px;
 }
@@ -132,9 +132,8 @@ div#progressBar div {
 	border-radius: 4vh;
 	box-shadow: 0 0.5vh 0.5vh #333;	
     background-color: #3e7531;
-	background: -webkit-linear-gradient(top, #409954, #3e7531);
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#409954), to(#3e7531)); 
-	background: -moz-linear-gradient(top, #409954, #3e7531); 
-	background: -ms-linear-gradient(top, #409954, #3e7531); 
-	background: -o-linear-gradient(top, #409954, #3e7531);	
+	background: -webkit-linear-gradient(right, #409954 10%, #146b27 80%, #17420d 100%);
+	background: -moz-linear-gradient(right, #409954 10%, #146b27 80%, #17420d 100%); 
+	background: -ms-linear-gradient(right, #409954 10%, #146b27 80%, #17420d 100%); 
+	background: -o-linear-gradient(right, #409954 10%, #146b27 80%, #17420d 100%);	
 }

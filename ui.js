@@ -7,10 +7,9 @@ function hidemenus() {
 function progressBar(percent, $element) {
 	var progressBarWidth = percent * $element.width() / 100;
     $element.find('div').animate({ width: progressBarWidth }, 500).html(percent + "%&nbsp;");
-    console.log(progressBarWidth);
 }
 
 
-function updateUI() {
-    
+function UpdateUI() {
+    $("#CashOnScreen").html("My Cash <br><strong> $" + fixing(p.cash ,2) + "</strong>");
 }

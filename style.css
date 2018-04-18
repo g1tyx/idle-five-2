@@ -7,6 +7,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    overflow: hidden;
 }
 
 .menu-up {
@@ -136,4 +137,22 @@ div#progressBar div {
 	background: -moz-linear-gradient(right, #409954 10%, #146b27 80%, #17420d 100%); 
 	background: -ms-linear-gradient(right, #409954 10%, #146b27 80%, #17420d 100%); 
 	background: -o-linear-gradient(right, #409954 10%, #146b27 80%, #17420d 100%);	
+}
+
+.organization {
+	background:none;
+	background-color: rgba(0,0,0,0.80);
+	border: 0px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: rgb(255, 255, 255); 
+	border-radius: 15px;
+	font-size: 15px;
+	font-family: Maven Pro;
+	text-align: center;
+    text-transform: capitalize;
+    padding: 10px 25px 10px 25px;
+	overflow: hidden;
+	outline: none;
+	resize:none;
 }

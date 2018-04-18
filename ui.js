@@ -9,7 +9,7 @@ function progressBar(percent, $element) {
     $element.find('div').animate({ width: progressBarWidth }, 500).html(percent + "%&nbsp;");
 }
 
-
 function UpdateUI() {
     $("#CashOnScreen").html("My Cash <br><strong> $" + fixing(p.cash ,2) + "</strong>");
+    $("#TimeText").html("You started the " + p.DateStarted + ". <br>And played for <strong>" + toHHMMSS(p.playTime) + "</strong>");
 }

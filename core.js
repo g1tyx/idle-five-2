@@ -13,17 +13,10 @@ var p = {
     playTime: 0
 };
 
-
 function idleLoop() {
-    p.playTime++;
     if (p.progress < 100) {
-        p.progress += 25;
-        progressBar(p.progress, $('#progressBar'));
-    } else {
-        p.progress = 0;
-        progressBar(p.progress, $('#progressBar'));
-        p.cash += p.cashtoadd;
-    }
+        p.progress += 25; progressBar(p.progress, $('#progressBar'));
+    } else { p.progress = 0; progressBar(p.progress, $('#progressBar')); p.cash += p.cashtoadd; }
     p.playTime++;
     UpdateUI();
 }

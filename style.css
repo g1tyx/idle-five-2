@@ -78,7 +78,7 @@ body {
 	color: #FFF;
     border-style: solid;
     border-color: #00000000;
-    border-width: 0.25vh 0 0.25vh 0;
+    border-width: 0 0 0.5vh 0;
     float: left;
     cursor: url("images/hand.cur"), pointer;
     font-size: 2vh;
@@ -92,7 +92,7 @@ body {
     text-shadow: 0px 0px 16px #023609;
     color: #749a6a;
     cursor: url("images/hand.cur"), pointer;
-    border-width: 0.25vh 0 0.25vh 0;
+    border-width: 0 0 0.5vh 0;
     border-color: #2e691f;
     border-radius: 10%;
 }

@@ -11,5 +11,7 @@ function progressBar(percent, $element) {
 
 function UpdateUI() {
     $("#CashOnScreen").html("My Cash <br><strong> $" + fixing(p.cash ,2) + "</strong>");
+    $('#gameinfos').html('Version ' + VERSION + "<br>Created by Aizen_");
     $("#TimeText").html("You started the " + p.DateStarted + ". <br>And played for <strong>" + toHHMMSS(p.playTime) + "</strong>");
+    save();
 }

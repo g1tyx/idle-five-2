@@ -66,9 +66,74 @@ toHHMMSS = function (id) {
     var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
     var seconds = sec_num - (hours * 3600) - (minutes * 60);
 
-    if (hours   < 10) {hours   = "0"+hours;}
-    if (minutes < 10) {minutes = "0"+minutes;}
-    if (seconds < 10) {seconds = "0"+seconds;}
+    if (hours   < 10) {hours   = ""+hours;}
+    if (minutes < 10) {minutes = ""+minutes;}
+    if (seconds < 10) {seconds = ""+seconds;}
     var time    = hours+' hours '+minutes+' minutes '+seconds+' seconds ';
     return time;
+};
+
+// Save and load functions
+var canSave = 1;
+
+// Sauvegarde le jeu au format JSON dans le localStorage
+var save = function(){
+	var date = new Date();
+	if(canSave){
+		localStorage.setItem("IdleFive", JSON.stringify(p));
+	}
+	var tmp = new Date().getTime();
+};
+
+var load = function(){
+	var savegame = JSON.parse(localStorage.getItem("IdleFive"));
+
+	for (var property in savegame) {
+		if (typeof savegame[property] !== 'undefined') p[property] = savegame[property];
+	}
+	UpdateUI();
+};
+
+var exportSave = function(){
+	var saveData = btoa(JSON.stringify(p));
+	window.getSelection().removeAllRanges();
+	alert("Save copied in your clipboard. (CTRL+V to paste it)");
+	$("#exportBody").html("<textarea id='saveCode'>"+saveData+"</textarea>");
+	var textField = document.getElementById("saveCode");
+	textField.select();
+	document.execCommand("copy");
+	window.getSelection().removeAllRanges();
+	$("#exportBody").html("");
+};
+
+var importSave = function(){
+    var save = prompt("Paste the code previously obtained here");
+    if(save) {
+		restoreSave(save);
+	}
+};
+
+var restoreSave = function(save){
+	try {
+		var decoded = atob(save);
+		JSON.parse(decoded);
+		if (decoded) {
+			localStorage.setItem("IdleFive", decoded);
+			canSave = 0;
+			location.reload();
+		} else {
+			$("#debugtext").html("ERROR: Invalid Save Data");
+		}
+	} catch(err){
+		$("#debugtext").html("ERROR: Invalid Save Data");
+	}
+};
+
+var confirmReset = function() {
+    var input = prompt("To start a new game please write 6", "");
+    if (input == 6) {
+        canSave = 0;
+        localStorage.clear();
+        location.reload();
+    }
 };

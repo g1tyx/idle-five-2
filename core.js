@@ -1,17 +1,20 @@
+var VERSION = 0.1;
+
 $(document).ready(function () {
     document.title = "IdleFive";
     console.log("Have fun of IdleFive!   - Aizen_");
     progressBar(0, $('#progressBar'));
     loadAllEvents();
+    if (localStorage.getItem("IdleFive") != null) { load(); }
     UpdateUI();
 });
-var p = {
-    DateStarted: getDate(),
-    cash: 0,
-    cashtoadd: 1,
-    progress: 0,
-    playTime: 0
-};
+    var p = {
+        DateStarted: getDate(),
+        cash: 0,
+        cashtoadd: 1,
+        progress: 0,
+        playTime: 0
+    };
 
 function idleLoop() {
     if (p.progress < 100) {

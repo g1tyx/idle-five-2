@@ -19,29 +19,57 @@
 <body class="noselect" oncontextmenu="return false;">
     <div class="menu-up">
         <div class="game-title" id="game-title">IdleFive</div>
-        <div class="cash" id="CashOnScreen">My Cash
-            <br>
-            <strong>$0.0</strong>
+        <div class="cash" id="CashOnScreen">Loading...
         </div>
     </div>
     <div class="menu-bar"></div>
     <div class="menu-tabs" id="menu">
-        <button class="button1" id="1" data-id="1">Missions<div class="icon1"></div></img>
-        <!--TAKE TIME TO DO BUT DO MONEY-->
-        <button class="button1" id="2" data-id="2">Stock Market<div class="icon2"></div></button>
-        <!--USE THE MONEY OF THE COMPANY AND MAKE IT GROWTH-->
-        <button class="button1" id="3" data-id="3">Management<div class="icon3"></div></button>
-        <!--BASICALLY AN UPGRADING SYSTEM-->
-        <button class="button1" id="4" data-id="4">Statistics<div class="icon4"></div></button>
-        <!--WELL, THIS IS OBVIOUSLY THE STATISTICS-->
+        <button class="button1" id="1" data-id="1">Missions
+            <div class="icon1"></div>
+            </img>
+            <!--TAKE TIME TO DO BUT DO MONEY-->
+            <button class="button1" id="2" data-id="2">Stock Market
+                <div class="icon2"></div>
+            </button>
+            <!--USE THE MONEY OF THE COMPANY AND MAKE IT GROWTH-->
+            <button class="button1" id="3" data-id="3">Management
+                <div class="icon3"></div>
+            </button>
+            <!--BASICALLY AN UPGRADING SYSTEM-->
+            <button class="button1" id="4" data-id="4">Statistics
+                <div class="icon4"></div>
+            </button>
+            <!--WELL, THIS IS OBVIOUSLY THE STATISTICS-->
     </div>
     <div class="game" id="game">
         <div id="tab1" style="display: block;">
-            <p class="center">Mission progression</p>
-            <br>
-            <div id="progressBar">
-                <div></div>
+            <div class="content"><br>
+                <p class="center">Mission in progress :</p> <p id="MissionInProgress" class="text-title"></p>
+                <p class="center">Make <font id="MoneyPerCompletition" class="vert"></font> per completition</p>
+                <br>
+                <div id="progressBar">
+                    <div></div>
+                </div>
             </div>
+
+            <div class="content">
+                <p class="text-title">Pickpocketing</p>
+                <p class="text-normal">Cost to start :
+                    <font class="vert">
+                        <strong>$10</strong>
+                    </font>
+                </p>
+            </div>
+            <div class="content">
+                <p class="text-title">Rob a Grocery Store</p>
+                <p class="text-normal">Cost to start :
+                    <font class="vert">
+                        <strong>$100</strong>
+                    </font>
+                </p>
+            </div>
+
+
             <div>
                 <div></div>
             </div>
@@ -54,18 +82,21 @@
         </div>
         <div id="tab4" style="display: none;">
             <p class="center" id="TimeText"></p>
-            <input type="button" id="btnReset" class="button3" value="New Account" onclick="confirmReset();"><br><br>
-            <input type="button" id="btnExport" class="button2" value="Export Save" onClick="exportSave();" />
-            <input type="button" id="btnImport" class="button2" value="Import Save" onClick="importSave();" /><br>
+            <input type="button" id="btnReset" class="button3" value="New Account" onclick="confirmReset();">
+            <br>
+            <br>
+            <input type="button" id="btnExport" class="button2" value="Export Save" style="float: left;" onClick="exportSave();" />
+            <input type="button" id="btnImport" class="button2" value="Import Save" style="float: right;" onClick="importSave();" />
+            <br>
             <div id="exportBody"></div>
-            <p class="center gameinfos" id="gameinfos">TEST</p>
+            <p class="center gameinfos" id="gameinfos"></p>
         </div>
     </div>
     <div id="overlay" style="display: none;" class="overlay">
-            <div class="tutorial" style="display: none;">
-<p class="text-24">TESTING SIZE</p>
+        <div class="tutorial" style="display: none;">
+            <p class="text-24">TESTING SIZE</p>
 
-            </div>
+        </div>
     </div>
 
 </body>

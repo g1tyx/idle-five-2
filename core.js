@@ -11,14 +11,16 @@ $(document).ready(function () {
     var p = {
         DateStarted: getDate(),
         cash: 0,
-        cashtoadd: 1,
+        progressSpeed: 10,
+        cashtoadd: 0,
+        mission: "None",
         progress: 0,
         playTime: 0
     };
 
 function idleLoop() {
     if (p.progress < 100) {
-        p.progress += 25; progressBar(p.progress, $('#progressBar'));
+        p.progress += p.progressSpeed; progressBar(p.progress, $('#progressBar'));
     } else { p.progress = 0; progressBar(p.progress, $('#progressBar')); p.cash += p.cashtoadd; }
     p.playTime++;
     UpdateUI();

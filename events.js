@@ -3,5 +3,6 @@ function loadAllEvents() {
         var id = $(this).data('id');
         hidemenus();
         document.getElementById('tab' + id).style.display = 'block';
+        $("#"+id).addClass("active");
     });
 }

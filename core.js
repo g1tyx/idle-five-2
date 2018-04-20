@@ -11,6 +11,9 @@ $(document).ready(function () {
     var p = {
         DateStarted: getDate(),
         cash: 0,
+        rank: 1,
+        rp: 0,
+        maxrp: 100,
         progressSpeed: 10,
         cashtoadd: 0,
         mission: "None",
@@ -26,3 +29,6 @@ function idleLoop() {
     UpdateUI();
 }
 setInterval(idleLoop, 1000);
+
+//Calculer 10% de 15 €
+// 15 x (10/100)= 1.5

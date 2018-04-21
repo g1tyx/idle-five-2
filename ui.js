@@ -6,9 +6,14 @@ function hidemenus() {
 }
 
 function progressBar(percent, $element) {
-	var progressBarWidth = percent * $element.width() / 100;
-    $element.find('div').animate({ width: progressBarWidth }, 500).html(percent + "%&nbsp;");
+    progressBarWidth = percent * $element.width() / 100;
+    console.log(fixing(progressBarWidth, 3));
+    p.progress = fixing(progressBarWidth, 3);
+    $element.find('div').animate({ width: progressBarWidth }, 500).html(fixing(percent, 2) + "%&nbsp;");
 }
+
+//Calculer 10% de 15 €
+// 15 x (10/100)= 1.5
 
 function UpdateUI() {
     $("#CashOnScreen").html("<font class='cash-title'> My Cash </font><br><strong> $" + fixing(p.cash ,2) + "</strong>");

@@ -10,12 +10,13 @@ body {
     background-attachment: fixed;
     background-size: cover;
     overflow: hidden;
+    outline: none;
     padding:0;
     margin:0;
 }
 
 .menu-up {
-    background-image: linear-gradient(to right, #2e691f, #598e4d);
+    background-image: linear-gradient(to right, #008618 20%, #0c710b 70%, #365a2c 100%);
     height: 7%;
     color: #FFF;
     font-size: large;
@@ -31,7 +32,7 @@ body {
     height: 0.5%;
     width: 80%;
     left: 10%;
-    background-image: linear-gradient(to right, #3e7531 10%, #409954 30%, #749a6a 100%);
+    background-image: linear-gradient(to right, #52bb39 10%, #39a952 30%, #3a672e 100%);
     border-style: none;
     border-radius: 0px;
 }
@@ -75,7 +76,8 @@ body {
 	float: right;
 	font-size: 2vh;
 	position: relative;
-	top: 10%;
+    top: 10%;
+    margin-left: 1%;
 	right: 0.5%;
 }
 
@@ -209,6 +211,11 @@ p {
     color: #2e691f;
 }
 
+.stats-title {
+    font-size: 3vh;
+    font-family: Pricedown;
+}
+
 .text-normal {
     font-size: 1.75vh;
 }
@@ -243,6 +250,22 @@ p {
     background-repeat: no-repeat;
     background-size: 2.5vh;
     height: 2.5vh;
+}
+
+.icon5 {
+    background-image: url(images/dollar.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 3.5vh;
+    height: 3.5vh;
+}
+
+.icon6 {
+    background-image: url(images/rp.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 3.5vh;
+    height: 3.5vh;
 }
 
 .button2 {
@@ -361,10 +384,16 @@ textarea {
     text-shadow: 0px 0px 20px #6015f3;
 }
 
+.rp {
+    color: #1a70d2;
+    text-shadow: 0px 0px 20px #1a70d2;
+}
+
 .button4 {
     background-image: linear-gradient(to left, #17420d,#146b27, #146b27);
 	color: #ffffff;
     border-radius: 1vh;
+    outline: none;
     cursor: url("images/hand.cur"), pointer;
     font-size: 2vh;
     font-family: Maven Pro;
@@ -379,7 +408,11 @@ textarea {
     color: rgba(0,0,0,0);
     background-image: none;
     background-color: rgba(0,0,0,0.40);
-	border: 0.1vh solid rgba(0,0,0,0.40);
+    border: 0.1vh solid rgba(0,0,0,0.40);
+}
+
+.button4.disabled:hover {
+    cursor: url("images/normal.cur"), pointer;
 }
 
 .button4:hover {

@@ -8,10 +8,12 @@ function hidemenus() {
 function UpdateUI() {
     var count = p.missionStarted;
     var totalmission = count[0] + count[1] + count[2] + count[3] + count[4] + count[5] + count[6] + count[7] + count[8] + count[9] + count[10] + count[11] + count[12];
-    $("#CashOnScreen").html("<font class='cash-title'> My Cash </font><br><strong> $" + fixing(p.cash, 2) + "</strong>");
+    $("#CashOnScreen").html("<div class='icon5'></div><strong> $" + fixing(p.cash, 2) + "</strong>");
+    $("#RPOnScreen").html("<div class='icon6'></div><strong>" + fixing(p.rp, 3) + "/" + fixing(p.maxrp, 3) + "</strong>");
     $('#gameinfos').html('Version ' + VERSION + "<br>Created by Aizen_");
     $("#TimeText").html("You started the " + p.DateStarted + ". <br>And played for <strong>" + toHHMMSS(p.playTime) + "</strong>");
-    $("#MissionInProgress").html(totalmission);
+    $("#MissionInProgress").html("<font class='jaune'>" + totalmission + "/13</font> Missions in progress");
+    $("#CurrentRank").html("Rank <strong class='rp'>" + fixing(p.rank, 3) + "</strong>");
     $("#MoneyPerCompletition").html("<strong>$" + missions[1].reward + "</strong>");
     save();
     MissionsList();

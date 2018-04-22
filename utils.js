@@ -64,12 +64,14 @@ toHHMMSS = function (id) {
     var sec_num = parseInt(id, 10);
     var hours   = Math.floor(sec_num / 3600);
     var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-    var seconds = sec_num - (hours * 3600) - (minutes * 60);
-
-    if (hours   < 10) {hours   = ""+hours;}
-    if (minutes < 10) {minutes = ""+minutes;}
-    if (seconds < 10) {seconds = ""+seconds;}
-    var time    = hours+' hours '+minutes+' minutes '+seconds+' seconds ';
+	var seconds = sec_num - (hours * 3600) - (minutes * 60);
+	if (hours > 0) {hourstext = hours + " hours ";} else {hourstext = "";}
+	if (minutes > 0) {minutestext = minutes + " minutes ";} else {minutestext = "";}
+	if (seconds > 0) {secondstext = seconds + " seconds ";} else {seconds = "";}
+	if (hours == 1) {hourstext = hours + " hour ";}
+	if (minutes == 1) {minutestext = minutes + " minutes ";}
+	if (seconds == 1) {secondstext = seconds + " seconds ";}
+	var time = hourstext + minutestext + secondstext;
     return time;
 };
 

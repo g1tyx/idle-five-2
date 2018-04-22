@@ -1,7 +1,7 @@
 @font-face { font-family: Pricedown; src: url(pricedown.ttf); }
 
 body {
-background-repeat: test;
+background-repeat: repeat;
 }
 
 .menu-up {

@@ -32,7 +32,7 @@ function MissionsList() {
             if (remains==0) { GetReward(i); }
         } else {
             var canBuy = mission.cost > p.cash ? 'rouge' : 'vert';
-            cost = "Cost to launch : <font class='" + canbuy + "'><strong>$" + fixing(mission.cost, 2);
+            cost = "Cost to launch : <font class='" + canBuy + "'><strong>$" + fixing(mission.cost, 2);
             reward = "Production : <font class='gris'><strong>$" + fixing(mission.reward, 2);
             time = "Time : <font class='gris'><strong> " + toHHMMSS(mission.timer);
         }

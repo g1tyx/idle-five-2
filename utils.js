@@ -65,9 +65,12 @@ toHHMMSS = function (id) {
     var hours   = Math.floor(sec_num / 3600);
     var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
 	var seconds = sec_num - (hours * 3600) - (minutes * 60);
+	var secondstext = 0;
+	var minutestext = 0;
+	var hourstext = 0;
 	if (hours > 0) {hourstext = hours + " hours ";} else {hourstext = "";}
 	if (minutes > 0) {minutestext = minutes + " minutes ";} else {minutestext = "";}
-	if (seconds > 0) {secondstext = seconds + " seconds ";} else {seconds = "";}
+	if (seconds > 0) {secondstext = seconds + " seconds ";} else {secondstext = "0 seconds";}
 	if (hours == 1) {hourstext = hours + " hour ";}
 	if (minutes == 1) {minutestext = minutes + " minutes ";}
 	if (seconds == 1) {secondstext = seconds + " seconds ";}

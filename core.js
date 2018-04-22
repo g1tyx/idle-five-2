@@ -9,7 +9,7 @@ $(document).ready(function () {
 });
 var p = {
     DateStarted: getDate(),
-    cash: 0,
+    cash: 1,
     rank: 1,
     rp: 0,
     maxrp: 100,
@@ -24,11 +24,11 @@ var p = {
 
 var missions = {
     0: { name: 'Pickpocketing', timer: 10, reward: 0.5, cost: 1 },
-    1: { name: 'Rob a Grocery Store', timer: 20, reward: 2, cost: 2 },
-    2: { name: 'Rob an Armored Van', timer: 30, reward: 10, cost: 3 },
-    3: { name: 'Street Race', timer: 60, reward: 25, cost: 6 },
-    4: { name: 'False Papers Factory', timer: 120, reward: 50, cost: 12 },
-    5: { name: 'Weed Farm', timer: 180, reward: 100, cost: 100 },
+    1: { name: 'Rob a Grocery Store', timer: 20, reward: 2, cost: 15 },
+    2: { name: 'Rob an Armored Van', timer: 30, reward: 10, cost: 250 },
+    3: { name: 'Street Race', timer: 60, reward: 25, cost: 1000 },
+    4: { name: 'False Papers Factory', timer: 120, reward: 50, cost: 5000 },
+    5: { name: 'Weed Farm', timer: 180, reward: 100, cost: 15000 },
     6: { name: 'False Money Factory', timer: 600, reward: 200, cost: 60 },
     7: { name: 'Meth Workshop', timer: 900, reward: 500, cost: 90 },
     8: { name: 'Cocaine Workshop', timer: 1200, reward: 5000, cost: 120 },
@@ -38,17 +38,25 @@ var missions = {
     12: { name: 'Rob the Union Depository', timer: 3600, reward: 1000000, cost: 360 }
 };
 var progressBarWidth = 0;
-var TimeRemaiming = 0;
+var TimeRemaining = 0;
 
 function idleLoop() {
-    //    if (p.timerscount[i] < missions[i].timer) { 
-    //        p.timerscount[i] += 1;
-    //        TimeRemaining = missions[i].timer - p.timerscount[i];
-    //        console.log(TimeRemaining);
-    //        p.progress = (p.timerscount[i]/missions[i].timer)*100;
-    //        progressBar(p.progress, fixing(TimeRemaining, 3), $('#progressBar'+ i));
-    //    } else { p.timerscount[i] = 0; p.rp +=p.missionRewards[i]; p.cash += missions[i].rewards; progressBar(0, 0, $('#progressBar' + i));}
     p.playTime++;
     UpdateUI();
 }
 setInterval(idleLoop, 1000);
+
+function LaunchMission(id) {
+    if (p.missionStarted[id] !== 1) {
+        if (p.cash >= missions[id].cost) {
+            p.cash -= missions[id].cost;
+            p.missionStarted[id] = 1;
+        }
+    }
+}
+
+function GetReward(id) {
+    p.timerscount[id] = 0;
+    p.rp += p.missionRewards[id];
+    p.cash += missions[id].reward;
+}

@@ -4,11 +4,6 @@ function hidemenus() {
         $("#" + i).removeClass("active");
     }
 }
-function progressBar(percent, time, $element) {
-    progressBarWidth = percent * $element.width() / 100;
-    p.progress = fixing(progressBarWidth, 3);
-    $element.find('div').animate({ width: progressBarWidth }, 500).html(time + " sec");
-}
 
 function UpdateUI() {
     var count = p.missionStarted;
@@ -19,33 +14,38 @@ function UpdateUI() {
     $("#MissionInProgress").html(totalmission);
     $("#MoneyPerCompletition").html("<strong>$" + missions[1].reward + "</strong>");
     save();
-    MissionsBoard();
+    MissionsList();
 }
 
-function MissionsBoard() {
-    $('#missionsList').html("");
+function MissionsList() {
+    $('#MissionsBoard').html("");
 
     for (var i in missions) {
         var mission = missions[i];
         if (p.missionStarted[i] == 1) {
-        cost = "<font class='blanc'><strong>LAUNCHED";
-        reward = "<font class='vert'><strong>$" + fixing(mission.reward, 2);
-        time = toHHMMSS(mission.timer);
+            cost = "<font class='blanc'><strong>LAUNCHED";
+            reward = "Produce : <font class='vert'><strong>$" + fixing(mission.reward, 2);
+            if (p.timerscount[i] < mission.timer) { p.timerscount[i] += 1; remains = mission.timer - p.timerscount[i];} else { GetReward(i); }
+            time = "Remaining time : <font class='jaune'><strong>" + toHHMMSS(remains);
+            if (remains==0) { GetReward(i); }
         } else {
-        cost = "Cost to launch : <font class='vert'><strong>$" + fixing(mission.cost, 2);
-        reward = "<font class='gris'><strong>$" + fixing(mission.reward, 2);
-        time = toHHMMSS(mission.timer);
+            cost = "Cost to launch : <font class='vert'><strong>$" + fixing(mission.cost, 2);
+            reward = "Production : <font class='gris'><strong>$" + fixing(mission.reward, 2);
+            time = "Time : <font class='jaune'><strong> " + toHHMMSS(mission.timer);
         }
+
+        var canLaunch = mission.cost > p.cash ? ' disabled' : '';
+        var bought = p.missionStarted[i] > 0 ? ' disabled' : '';
 
         var missionsDIV = $(
             "<div class='content'>" +
-            "<p class='text-title'>" + mission.name + "</p>" +
+            "<p class='text-title'>" + mission.name + "</p><br>" +
             "<p class='text-normal'>" + cost + "</strong></font></p>" +
-            "<p class='text-normal'>Production : " + reward + "</strong></font></p>" +
-            "<p class='text-normal'>Time : <font class='jaune'><strong>"+ time + "</strong></font></p><br>" +
-            "<div class='bar' id='progressBar" + i + "'><div></div></div>" +
+            "<p class='text-normal'>" + reward + "</strong></font></p>" +
+            "<p class='text-normal'>" + time + "</strong></font></p><br>" +
+            "<input type='button' class='button4" + canLaunch + bought + "' value='Launch the mission' onClick='LaunchMission("+ i +")'></input>" +
             "</div>"
         );
-        $('#missionsList').append(missionsDIV);
+        $('#MissionsBoard').append(missionsDIV);
     }
 }

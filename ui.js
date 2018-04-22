@@ -33,7 +33,7 @@ function MissionsList() {
         } else {
             cost = "Cost to launch : <font class='vert'><strong>$" + fixing(mission.cost, 2);
             reward = "Production : <font class='gris'><strong>$" + fixing(mission.reward, 2);
-            time = "Time : <font class='jaune'><strong> " + toHHMMSS(mission.timer);
+            time = "Time : <font class='gris'><strong> " + toHHMMSS(mission.timer);
         }
 
         var canLaunch = mission.cost > p.cash ? ' disabled' : '';

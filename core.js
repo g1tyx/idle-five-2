@@ -46,7 +46,7 @@ function idleLoop() {
     p.rp-=p.maxrp;
     p.rank++;
     if(p.rank<5){ p.maxrp=p.rank * 100; } 
-    if(p.rank>4) { p.maxrp=p.rank * 500; }
+    if(p.rank>4) { p.maxrp=p.rank * 200; }
     if(p.rank>49) { p.maxrp=p.maxrp + 500; }
     if(p.rank>99) { p.maxrp=p.maxrp + 1000; }
     }

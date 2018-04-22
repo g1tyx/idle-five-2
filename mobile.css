@@ -1,0 +1,32 @@
+@font-face { font-family: Pricedown; src: url(pricedown.ttf); }
+
+body {
+background-repeat: test;
+}
+
+.menu-up {
+    left: 0%;
+    top: 0%;
+    width: 100%;
+}
+
+.menu-bar {
+    top: 7%;
+    height: 0.5%;
+    width: 100%;
+    left: 0%;
+}
+
+.menu-tabs {
+    height: 9%;
+    left: 0%;
+    top: 7.5%;
+    width: 100%;
+}
+
+.game {
+    left: 0%;
+    top: 16.5%;
+    width: 100%;
+    overflow: auto;
+}

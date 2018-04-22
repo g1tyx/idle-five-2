@@ -72,8 +72,8 @@ toHHMMSS = function (id) {
 	if (minutes > 0) {minutestext = minutes + " minutes ";} else {minutestext = "";}
 	if (seconds > 0) {secondstext = seconds + " seconds ";} else {secondstext = "0 seconds";}
 	if (hours == 1) {hourstext = hours + " hour ";}
-	if (minutes == 1) {minutestext = minutes + " minutes ";}
-	if (seconds == 1) {secondstext = seconds + " seconds ";}
+	if (minutes == 1) {minutestext = minutes + " minute ";}
+	if (seconds == 1) {secondstext = seconds + " second ";}
 	var time = hourstext + minutestext + secondstext;
     return time;
 };

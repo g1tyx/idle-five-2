@@ -29,27 +29,21 @@ var missions = {
     4: { name: 'False Papers Factory', timer: 120, reward: 50, cost: 500 },
     5: { name: 'Weed Farm', timer: 180, reward: 100, cost: 1050 },
     6: { name: 'False Money Factory', timer: 600, reward: 200, cost: 2250 },
-    7: { name: 'Meth Workshop', timer: 900, reward: 500, cost: 5750 },
-    8: { name: 'Cocaine Workshop', timer: 1200, reward: 5000, cost: 52500 },
+    7: { name: 'Meth Workshop', timer: 900, reward: 500, cost: 5000 },
+    8: { name: 'Cocaine Workshop', timer: 1200, reward: 5000, cost: 6500 },
     9: { name: 'Hangar', timer: 1800, reward: 10000, cost: 125000 },
     10: { name: 'Bunker', timer: 2400, reward: 50000, cost: 525000 },
     11: { name: 'Vehicle Trafficking', timer: 3000, reward: 100000, cost: 1500000 },
-    12: { name: 'Rob the Union Depository', timer: 3600, reward: 1000000, cost: 2500000}
+    12: { name: 'Rob the Union Depository', timer: 3600, reward: 1000000, cost: 2500000 }
 };
 var progressBarWidth = 0;
 var TimeRemaining = 0;
 
 function idleLoop() {
     p.playTime++;
-    if(p.rp>=p.maxrp) {
-    p.rp-=p.maxrp;
-    p.rank++;
-    if(p.rank<5){ p.maxrp=p.rank * 100; } 
-    if(p.rank>4) { p.maxrp=p.rank * 200; }
-    if(p.rank>49) { p.maxrp=p.maxrp + 500; }
-    if(p.rank>99) { p.maxrp=p.maxrp + 1000; }
-    }
-    UpdateUI();
+    checkRP();
+}
+UpdateUI();
 }
 setInterval(idleLoop, 1000);
 
@@ -62,9 +56,21 @@ function LaunchMission(id) {
     }
 }
 
+function checkRP() {
+    if (p.rp >= p.maxrp) {
+        p.rp -= p.maxrp;
+        p.rank++;
+        if (p.rank < 5) { p.maxrp = p.rank * 100; }
+        if (p.rank > 4) { p.maxrp = p.rank * 200; }
+        if (p.rank > 49) { p.maxrp = p.maxrp + 50000; }
+        if (p.rank > 99) { p.maxrp = p.maxrp + 1000000; }
+    }
+    if (p.rp >= p.maxrp) { checkRP(); }
+}
+
 function GetReward(id) {
     p.timerscount[id] = 0;
-    p.rp += missions[id].reward*10;
+    p.rp += missions[id].reward * 10;
     p.cash += missions[id].reward;
     p.completed++;
 }

@@ -26,8 +26,8 @@ var p = {
 var missions = {
     0: { name: 'Pickpocketing', timer: 10, reward: 0.5, cost: 1 },
     1: { name: 'Rob a Grocery Store', timer: 20, reward: 5, cost: 10 },
-    2: { name: 'Rob an Armored Van', timer: 30, reward: 10, cost: 100 },
-    3: { name: 'Street Race', timer: 60, reward: 25, cost: 250 },
+    2: { name: 'Street Race', timer: 30, reward: 10, cost: 100 },
+    3: { name: 'Rob an Armored Van', timer: 60, reward: 25, cost: 250 },
     4: { name: 'False Papers Factory', timer: 120, reward: 50, cost: 500 },
     5: { name: 'Weed Farm', timer: 180, reward: 100, cost: 1050 },
     6: { name: 'False Money Factory', timer: 600, reward: 200, cost: 2250 },

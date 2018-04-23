@@ -44,11 +44,6 @@
     </div>
     <div class="game" id="game">
         <div id="tab1" style="display: block;">
-            <div class="content">
-                <br>
-                <p id="CurrentRank" class="stats-title"></p>
-                <p id="MissionInProgress"></p>
-            </div>
             <div id="MissionsBoard"></div>
 
             <div>
@@ -62,6 +57,10 @@
             <p class="center">Office</p>
         </div>
         <div id="tab4" style="display: none;">
+            <br>
+            <p class="text-title blanc center" id="CurrentRank"></p>
+            <p class="center" id="MissionInProgress"></p>
+            <br>
             <p class="center" id="TimeText"></p>
             <input type="button" id="btnReset" class="button3" value="New Account" onclick="confirmReset();">
             <br>
@@ -75,9 +74,13 @@
     </div>
     <div id="overlay" style="display: none;" class="overlay">
         <div class="tutorial">
-            <p class="text-title blanc">Tutorial</p><br>
-            <p id="tutorialtext"></p><br>
-            <input type="button" id="btnCloseTutorial" class="button2" value="Okay" /><br><br>
+            <p class="text-title blanc">Tutorial</p>
+            <br>
+            <p id="tutorialtext"></p>
+            <br>
+            <input type="button" id="btnCloseTutorial" class="button2" value="Okay" />
+            <br>
+            <br>
         </div>
     </div>
 

@@ -16,7 +16,7 @@ body {
 }
 
 .menu-up {
-    background-image: linear-gradient(to right, #008618 20%, #0c710b 70%, #365a2c 100%);
+    background-image: linear-gradient(to right, #17882b 10%, #42a741 20%, #3a9238 46%, #1e3a1794 100%);
     height: 7%;
     color: #FFF;
     font-size: large;
@@ -39,7 +39,7 @@ body {
 
 .menu-tabs {
 	background: rgba(0, 0, 0, 0.5);
-    height: 9%;
+    height: 6.5%;
     color: #FFF;
     font-size: large;
     left: 10%;
@@ -50,11 +50,11 @@ body {
 
 .game {
     background: rgba(0, 0, 0, 0.5);
-    height: 83.5%;
+    height: 86.5%;
     color: #FFF;
     font-size: 2vh;
     left: 10%;
-    top: 16.5%;
+    top: 14%;
     width: 80%;
     position: absolute;
     overflow: auto;
@@ -103,23 +103,23 @@ body {
 }
 
 .button1:hover {
-    text-shadow: 0px 0px 16px #023609;
+    text-shadow: 0px 0px 1.6vh #023609;
     color: rgb(56, 163, 56);
-    text-shadow: 0px 0px 20px rgb(31, 177, 51);
+    text-shadow: 0px 0px 2vh rgb(31, 177, 51);
     cursor: url("images/hand.cur"), pointer;
     border-width: 0 0 0.5vh 0;
     border-color: #2e691f;
-    border-radius: 10%;
+    border-radius: 0.75vh;
 }
 
 .button1.active {
-    text-shadow: 0px 0px 16px #023609;
+    text-shadow: 0px 0px 1.6vh #023609;
     color: rgb(56, 163, 56);
-    text-shadow: 0px 0px 20px rgb(31, 177, 51);
+    text-shadow: 0px 0px 2vh rgb(31, 177, 51);
     cursor: url("images/hand.cur"), pointer;
     border-width: 0 0 0.5vh 0;
     border-color: #2e691f;
-    border-radius: 10%;
+    border-radius: 0.75vh;
 }
 
 button:focus {outline:0;}
@@ -228,32 +228,40 @@ p {
 
 .icon1 {
     background-image: url(images/missions.png);
-    background-position: bottom;
+    background-position: left;
     background-repeat: no-repeat;
+    margin-left: 2vw;
+    margin-right: 0vw;
     background-size: 2.5vh;
     height: 2.5vh;
 }
 
 .icon2 {
     background-image: url(images/stockmarket.png);
-    background-position: bottom;
+    background-position: left;
     background-repeat: no-repeat;
+    margin-left: 2vw;
+    margin-right: 0vw;
     background-size: 2.5vh;
     height: 2.5vh;
 }
 
 .icon3 {
     background-image: url(images/management.png);
-    background-position: bottom;
+    background-position: right;
     background-repeat: no-repeat;
+    margin-left: 0vw;
+    margin-right: 2vw;
     background-size: 2.5vh;
     height: 2.5vh;
 }
 
 .icon4 {
     background-image: url(images/statistics.png);
-    background-position: bottom;
+    background-position: right;
     background-repeat: no-repeat;
+    margin-left: 0vw;
+    margin-right: 2vw;
     background-size: 2.5vh;
     height: 2.5vh;
 }
@@ -340,8 +348,8 @@ textarea {
     text-align: center;
     margin-left: 1%;
     margin-right: 1%;
-    margin-top: 1%;
-    padding-bottom: 3vh;
+    margin-top: 0.5%;
+    padding-bottom: 1.75vh;
     border-radius: 1vh;
 }
 
@@ -415,6 +423,9 @@ textarea {
     background-image: none;
     background-color: rgba(0,0,0,0.40);
     border: 0.1vh solid rgba(0,0,0,0.40);
+    padding: 1.56vh;
+    width: 0%;
+    font-size: 0vh;
 }
 
 .button4.disabled:hover {
@@ -424,4 +435,12 @@ textarea {
 .button4:hover {
     cursor: url("images/hand.cur"), pointer;
     border-radius: 1vh;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
 }

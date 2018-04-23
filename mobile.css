@@ -12,21 +12,33 @@ background-repeat: repeat;
 
 .menu-bar {
     top: 7%;
-    height: 0.5%;
     width: 100%;
     left: 0%;
 }
 
 .menu-tabs {
-    height: 9%;
     left: 0%;
-    top: 7.5%;
     width: 100%;
 }
 
 .game {
     left: 0%;
-    top: 16.5%;
     width: 100%;
     overflow: auto;
+}
+
+.icon1 {
+    background-position: top;
+}
+
+.icon2 {
+    background-position: top;
+}
+
+.icon3 {
+    background-position: top;
+}
+
+.icon4 {
+    background-position: top;
 }

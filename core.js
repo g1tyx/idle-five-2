@@ -16,8 +16,10 @@ var p = {
     progress: 0,
     progressSpeed: 0,
     completed: 0,
+    TutorialStep: 0,
     playTime: 0,
     missionStarted: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    MissionMultiplier: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     timerscount: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 };
 
@@ -36,10 +38,22 @@ var missions = {
     11: { name: 'Vehicle Trafficking', timer: 3000, reward: 100000, cost: 1500000 },
     12: { name: 'Rob the Union Depository', timer: 3600, reward: 1000000, cost: 2500000 }
 };
+
+var TutorialText = {
+    1: { text: "Hi man, welcome to Los Santos !<br>Did you have a job yet.. Anyway to get a little bit of cash?<br>Okay, let me help you then.<br> First, launch the mission called 'Pickpocketing' !" },
+    2: { text: "Good job !<br>Now that you have a mission to do, you will get some money.<br>But i think it'll not be enough for you to live properly.<br>Find a way in your office to fix this problem!"},
+    3: { text: "None" },
+    4: { text: "None" },
+    5: { text: "None" },
+};
+
+
 var progressBarWidth = 0;
 var TimeRemaining = 0;
 
 function idleLoop() {
+    if (p.TutorialStep == 0) { ShowTutorial(1); }
+    else if (p.missionStarted[0] == 1) { if(p.TutorialStep == 1) ShowTutorial(2); }
     p.playTime++;
     checkRP();
     UpdateUI();
@@ -70,6 +84,6 @@ function checkRP() {
 function GetReward(id) {
     p.timerscount[id] = 0;
     p.rp += missions[id].reward * 10;
-    p.cash += missions[id].reward;
+    p.cash += missions[id].reward * p.MissionMultiplier[id];
     p.completed++;
 }

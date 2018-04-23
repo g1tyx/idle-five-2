@@ -184,7 +184,7 @@ p {
 }
 
 .overlay {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
     left: 0%;
     top: 0%;
@@ -195,14 +195,19 @@ p {
 .tutorial {
     overflow: auto;
     position: relative;
-    background-color: #fff;
-    border-radius: 3px;
+    border-width: 0 0.1vh 0 0.1vh;
+    border-color: #7dff6d7a;
+    border-style: solid;
+    background-size: cover;
+    background-image: linear-gradient(to bottom,#37662373 , #204b299e , #0f531eab );
+    border-radius: 0.3vh;
     transition: transform .3s ease-out;
-    height: 90%;
+    /* height: 90%; */
     left: 22.5%;
-    top: 5%;
+    top: 20%;
+    bottom: 50%;
     width: 55%;
-    color: #000000;
+    color: #ffffff;
     text-align: center;
 }
 
@@ -352,7 +357,7 @@ textarea {
 }
  
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
+    border-radius: 1vh;
 	border: 0.1vh solid rgba(0,0,0,0.5);
 	background-image: linear-gradient(to bottom,#146b27 , #409954 , #146b27 );
 }

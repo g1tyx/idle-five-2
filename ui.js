@@ -26,14 +26,14 @@ function MissionsList() {
         var mission = missions[i];
         if (p.missionStarted[i] == 1) {
             cost = "<font class='blanc'><strong>LAUNCHED";
-            reward = "Produce : <font class='vert'><strong>$" + fixing(mission.reward, 2);
+            reward = "Produce : <font class='vert'><strong>$" + fixing(mission.reward*p.MissionMultiplier[i], 2);
             if (p.timerscount[i] < mission.timer) { p.timerscount[i] += 1; remains = mission.timer - p.timerscount[i];} else { GetReward(i); }
             time = "Remaining time : <font class='jaune'><strong>" + toHHMMSS(remains);
             if (remains==0) { GetReward(i); }
         } else {
             var canBuy = mission.cost > p.cash ? 'rouge' : 'vert';
             cost = "Cost to launch : <font class='" + canBuy + "'><strong>$" + fixing(mission.cost, 2);
-            reward = "Production : <font class='gris'><strong>$" + fixing(mission.reward, 2);
+            reward = "Production : <font class='gris'><strong>$" + fixing(mission.reward*p.MissionMultiplier[i], 2);
             time = "Time : <font class='gris'><strong> " + toHHMMSS(mission.timer);
         }
 
@@ -51,4 +51,11 @@ function MissionsList() {
         );
         $('#MissionsBoard').append(missionsDIV);
     }
+}
+
+function ShowTutorial(id) {
+    hidemenus();
+    var text = TutorialText[id].text;
+    document.getElementById('overlay').style.display = 'block';
+    $('#tutorialtext').html(text);
 }

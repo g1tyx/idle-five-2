@@ -42,8 +42,7 @@ var TimeRemaining = 0;
 function idleLoop() {
     p.playTime++;
     checkRP();
-}
-UpdateUI();
+    UpdateUI();
 }
 setInterval(idleLoop, 1000);
 

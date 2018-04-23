@@ -15,16 +15,15 @@ var p = {
     maxrp: 100,
     progress: 0,
     progressSpeed: 0,
-    mission: "None",
+    completed: 0,
     playTime: 0,
-    missionRewards: [],
     missionStarted: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     timerscount: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 };
 
 var missions = {
     0: { name: 'Pickpocketing', timer: 10, reward: 0.5, cost: 1 },
-    1: { name: 'Rob a Grocery Store', timer: 20, reward: 2, cost: 10 },
+    1: { name: 'Rob a Grocery Store', timer: 20, reward: 5, cost: 10 },
     2: { name: 'Rob an Armored Van', timer: 30, reward: 10, cost: 100 },
     3: { name: 'Street Race', timer: 60, reward: 25, cost: 250 },
     4: { name: 'False Papers Factory', timer: 120, reward: 50, cost: 500 },
@@ -67,4 +66,5 @@ function GetReward(id) {
     p.timerscount[id] = 0;
     p.rp += missions[id].reward*10;
     p.cash += missions[id].reward;
+    p.completed++;
 }

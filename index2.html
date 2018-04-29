@@ -39,16 +39,24 @@
             </button>
     </div>
     <div class="game" id="game">
-        <div id="tab1" style="display: block;">
-            <div id="MissionsBoard"></div>
-        </div>
-        <div id="tab2" style="display: none;">
-            <p class="center">Stock Market</p>
-        </div>
-        <div id="tab3" style="display: none;">
-            <p class="center">Office</p>
-        </div>
-        <div id="tab4" style="display: none;">
+            <div id="tab1" style="display: block;">
+                <div class="content">
+                    <p class="bigtitle">List of missions</p>
+                    <br />
+                    <div id="MissionsBoard"></div>
+                </div>
+            </div>
+            <div id="tab2" style="display: none;">
+                <p class="center">Stock Market</p>
+            </div>
+            <div id="tab3" style="display: none;">
+                <div class="content">
+                    <p class="bigtitle">list of upgrades</p>
+                    <br />
+                    <div id="OfficeBoard"></div>
+                </div>
+            </div>
+            <div id="tab4" style="display: none;">
                 <br>
                 <p class="text-title blanc center" id="CurrentRank"></p>
                 <p class="center" id="MissionInProgress"></p>
@@ -63,8 +71,8 @@
                 <div id="exportBody"></div>
                 <p class="center gameinfos" id="gameinfos"></p>
             </div>
-    </div>
-    <div id="overlay" style="display: none;" class="overlay">
+        </div>
+        <div id="overlay" style="display: none;" class="overlay">
             <div class="tutorial">
                 <p class="text-title blanc">Tutorial</p>
                 <br>
@@ -75,7 +83,7 @@
                 <br>
             </div>
         </div>
-
-</body>
-
-</html>
+    
+    </body>
+    
+    </html>

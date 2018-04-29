@@ -64,7 +64,7 @@ function OfficeList() {
         if (p.upgradeBuyed[i] == 1) {
             name = " vert'>" + upgrade.name;
             cost = "";
-            reward = "Produce <font class='vert type2'>$" + fixing(missions[upgrade.missionid].reward*p.MissionMultiplier[upgrade.missionid], 2)+ "</font>";
+            reward = "Producting <font class='vert type2'>$" + fixing(missions[upgrade.missionid].reward*p.MissionMultiplier[upgrade.missionid], 2)+ "</font>";
             time = " in <font class='jaune type2'>" + toHHMMSS(missions[upgrade.missionid].timer-p.TimeReducer[upgrade.missionid]);
         } else {
             var canBuy = upgrade.cost > p.cash ? 'rouge' : 'vert';

@@ -18,6 +18,7 @@ function UpdateUI() {
     save();
     MissionsList();
     OfficeList();
+    if( screen.width <= 480 ) { location.href = '/index2.html'; }
 }
 
 function MissionsList() {

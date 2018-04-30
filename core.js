@@ -1,4 +1,4 @@
-var VERSION = 0.21;
+var VERSION = 0.22;
 
 $(document).ready(function () {
     document.title = "IdleFive";

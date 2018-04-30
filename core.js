@@ -37,8 +37,8 @@ var missions = {
     8: { name: 'Cocaine Workshop', timer: 1200, reward: 5000, cost: 6500 },
     9: { name: 'Hangar', timer: 1800, reward: 10000, cost: 20000 },
     10: { name: 'Bunker', timer: 2400, reward: 50000, cost: 100000 },
-    11: { name: 'Vehicle Trafficking', timer: 3000, reward: 100000, cost: 1500000 },
-    12: { name: 'Rob the Union Depository', timer: 3600, reward: 1000000, cost: 2500000 }
+    11: { name: 'Vehicle Trafficking', timer: 3000, reward: 100000, cost: 500000 },
+    12: { name: 'Rob the Union Depository', timer: 3600, reward: 1000000, cost: 1000000 }
 };
 
 var upgrades = {

@@ -29,7 +29,7 @@ function MissionsList() {
         if (p.missionStarted[i] == 1) {
             name = " vert'>" + mission.name;
             cost = "";
-            reward = "Product <font class='vert type2'>$" + fixing(mission.reward*p.MissionMultiplier[i], 2) + "</font>";
+            reward = "Product <font class='vert type2'>$" + fixing(mission.reward*p.MissionMultiplier[i], 1) + "</font>";
             if (p.timerscount[i] <= mission.timer) { p.timerscount[i] += 1; remains = mission.timer - (p.timerscount[i] + p.TimeReducer[i]);} else { GetReward(i); }
             time = " in <font class='jaune type2'>" + toHHMMSS(remains);
             if (remains==0) { GetReward(i); }
@@ -37,7 +37,7 @@ function MissionsList() {
             var canBuy = mission.cost > p.cash ? 'rouge' : 'vert';
             name = " blanc'>" + mission.name;
             cost = "Cost to launch : <font class='type2 " + canBuy + "'>$" + fixing(mission.cost, 2);
-            reward = "Produce <font class='gris type2'>$" + fixing(mission.reward*p.MissionMultiplier[i], 2) + "</font>";
+            reward = "Produce <font class='gris type2'>$" + fixing(mission.reward*p.MissionMultiplier[i], 1) + "</font>";
             time = " every <font class='gris type2'> " + toHHMMSS(mission.timer);
         }
 
@@ -65,13 +65,13 @@ function OfficeList() {
         //NOT USED IN THIS VERSION
             name = " vert'>" + upgrade.name;
             cost = "";
-            reward = "Producting <font class='vert type2'>$" + fixing(missions[upgrade.missionid].reward*p.MissionMultiplier[upgrade.missionid], 2)+ "</font>";
+            reward = "Producting <font class='vert type2'>$" + fixing(missions[upgrade.missionid].reward*p.MissionMultiplier[upgrade.missionid], 1)+ "</font>";
             time = " in <font class='jaune type2'>" + toHHMMSS(missions[upgrade.missionid].timer-p.TimeReducer[upgrade.missionid]);
         } else {
             var canBuy = upgrade.cost > p.cash ? 'rouge' : 'vert';
             name = " blanc'>" + upgrade.name;
             cost = "Cost to upgrade : <font class='type2 " + canBuy + "'>$" + fixing(upgrade.cost, 2);
-            reward = "Multiply rewards by <font class='gris type2'> $" + fixing(upgrade.reward, 2) + "</font>";
+            reward = "Multiply rewards by <font class='gris type2'> $" + fixing(upgrade.reward, 1) + "</font>";
             time = " and reduce time by <font class='gris type2'> " + toHHMMSS(upgrade.time);
         }
 
@@ -80,7 +80,7 @@ function OfficeList() {
         var BuyAble = p.missionStarted[upgrade.missionid] > 0 ? '' : ' style="display:none;"';
 
         var officeDIV = $(
-            "<div class='content2'" + bought +  BuyAble + ">" +
+            "<div class='content2'" + bought + BuyAble + ">" +
             "<p class='text-title" + name + "</p><br>" +
             "<p class='text-normal'>" + cost + "</font></p>" +
             "<p class='text-normal'>" + reward + time +"</font></p>" +

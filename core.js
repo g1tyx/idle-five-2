@@ -68,6 +68,19 @@ var upgrades = {
     23: { name: 'Bunker II', missionid: 10, cost: 2000000, time: 480, reward: 1.25 },
     24: { name: 'Vehicle Trafficking II', missionid: 11, cost: 10000000, time: 600, reward: 1.25 },
     25: { name: 'Union Depository Robbing II', missionid: 12, cost: 20000000, time: 720, reward: 1.25 },
+    26: { name: 'Pickpocketing III', missionid: 0, cost: 100, time: 5, reward: 1.5 },
+    27: { name: 'Grocery Store Robbing III', missionid: 1, cost: 1500, time: 10, reward: 1.5 },
+    28: { name: 'Street Races III', missionid: 2, cost: 10000, time: 15, reward: 1.5 },
+    29: { name: 'Armored Vans III', missionid: 3, cost: 25000, time: 30, reward: 1.5 },
+    30: { name: 'False Papers Factory III', missionid: 4, cost: 50000, time: 60, reward: 1.5 },
+    31: { name: 'Weed Farm III', missionid: 5, cost: 100000, time: 90, reward: 1.5 },
+    32: { name: 'False Money Factory III', missionid: 6, cost: 200000, time: 300, reward: 1.5 },
+    33: { name: 'Meth Workshop III', missionid: 7, cost: 500000, time: 450, reward: 1.5 },
+    34: { name: 'Cocaine Workshop III', missionid: 8, cost: 75000, time: 600, reward: 1.5 },
+    35: { name: 'Hangar III', missionid: 9, cost: 2000000, time: 900, reward: 1.5 },
+    36: { name: 'Bunker III', missionid: 10, cost: 10000000, time: 1200, reward: 1.5 },
+    37: { name: 'Vehicle Trafficking III', missionid: 11, cost: 50000000, time: 1500, reward: 1.5 },
+    38: { name: 'Union Depository Robbing III', missionid: 12, cost: 100000000, time: 1800, reward: 1.5 },
 };
 
 
@@ -105,7 +118,7 @@ function BuyUpgrade(id) {
     if (p.upgradeBuyed[id] !== 1) {
         if (p.cash >= upgrades[id].cost) {
             p.cash -= upgrades[id].cost;
-            p.MissionMultiplier[upgrades[id].missionid] += upgrades[id].reward;
+            p.MissionMultiplier[upgrades[id].missionid] = upgrades[id].reward;
             p.TimeReducer[upgrades[id].missionid] += upgrades[id].time;
             p.upgradeBuyed[id] = 1;
         }

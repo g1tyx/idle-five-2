@@ -70,16 +70,17 @@ function OfficeList() {
             var canBuy = upgrade.cost > p.cash ? 'rouge' : 'vert';
             name = " blanc'>" + upgrade.name;
             cost = "Cost to upgrade : <font class='type2 " + canBuy + "'>$" + fixing(upgrade.cost, 2);
-            reward = "Multiply rewards by <font class='gris type2'> $" + fixing(upgrade.reward, 1) + "</font>";
+            reward = "Multiply rewards by <font class='gris type2'> x" + fixing(upgrade.reward, 1) + "</font>";
             time = " and reduce time by <font class='gris type2'> " + toHHMMSS(upgrade.time);
         }
 
         var canAdd = upgrade.cost > p.cash ? ' disabled' : '';
+        var Viewable = p.cash*2 < upgrade.cost ? ' style="display:none;"' : '';
         var bought = p.upgradeBuyed[i] > 0 ? ' style="display:none;"' : '';
         var BuyAble = p.missionStarted[upgrade.missionid] > 0 ? '' : ' style="display:none;"';
 
         var officeDIV = $(
-            "<div class='content2'" + bought + BuyAble + ">" +
+            "<div class='content2'" + Viewable + bought + BuyAble + ">" +
             "<p class='text-title" + name + "</p><br>" +
             "<p class='text-normal'>" + cost + "</font></p>" +
             "<p class='text-normal'>" + reward + time +"</font></p>" +

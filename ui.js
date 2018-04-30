@@ -29,7 +29,7 @@ function MissionsList() {
         if (p.missionStarted[i] == 1) {
             name = " vert'>" + mission.name;
             cost = "";
-            reward = "Produce <font class='vert type2'>$" + fixing(mission.reward*p.MissionMultiplier[i], 2) + "</font>";
+            reward = "Product <font class='vert type2'>$" + fixing(mission.reward*p.MissionMultiplier[i], 2) + "</font>";
             if (p.timerscount[i] <= mission.timer) { p.timerscount[i] += 1; remains = mission.timer - (p.timerscount[i] + p.TimeReducer[i]);} else { GetReward(i); }
             time = " in <font class='jaune type2'>" + toHHMMSS(remains);
             if (remains==0) { GetReward(i); }
@@ -37,7 +37,7 @@ function MissionsList() {
             var canBuy = mission.cost > p.cash ? 'rouge' : 'vert';
             name = " blanc'>" + mission.name;
             cost = "Cost to launch : <font class='type2 " + canBuy + "'>$" + fixing(mission.cost, 2);
-            reward = "Product <font class='gris type2'>$" + fixing(mission.reward*p.MissionMultiplier[i], 2) + "</font>";
+            reward = "Produce <font class='gris type2'>$" + fixing(mission.reward*p.MissionMultiplier[i], 2) + "</font>";
             time = " every <font class='gris type2'> " + toHHMMSS(mission.timer);
         }
 
@@ -62,6 +62,7 @@ function OfficeList() {
     for (var i in upgrades) {
         var upgrade = upgrades[i];
         if (p.upgradeBuyed[i] == 1) {
+        //NOT USED IN THIS VERSION
             name = " vert'>" + upgrade.name;
             cost = "";
             reward = "Producting <font class='vert type2'>$" + fixing(missions[upgrade.missionid].reward*p.MissionMultiplier[upgrade.missionid], 2)+ "</font>";
@@ -75,15 +76,15 @@ function OfficeList() {
         }
 
         var canAdd = upgrade.cost > p.cash ? ' disabled' : '';
-        var bought = p.upgradeBuyed[i] > 0 ? ' disabled' : '';
-        var BuyAble = p.missionStarted[upgrade.missionid] > 0 ? '' : ' disabled';
+        var bought = p.upgradeBuyed[i] > 0 ? ' style="display:none;"' : '';
+        var BuyAble = p.missionStarted[upgrade.missionid] > 0 ? '' : ' style="display:none;"';
 
         var officeDIV = $(
-            "<div class='content2'>" +
+            "<div class='content2'" + bought +  BuyAble + ">" +
             "<p class='text-title" + name + "</p><br>" +
             "<p class='text-normal'>" + cost + "</font></p>" +
             "<p class='text-normal'>" + reward + time +"</font></p>" +
-            "<input type='button' class='button4" + BuyAble + canAdd + bought + "' value='Buy it!' onClick='BuyUpgrade("+ i +")'></input>" +
+            "<input type='button' class='button4" + canAdd + "' value='Buy it!' onClick='BuyUpgrade("+ i +")'></input>" +
             "</div>"
         );
         $('#OfficeBoard').append(officeDIV);

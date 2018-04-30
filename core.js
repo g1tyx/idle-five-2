@@ -1,4 +1,4 @@
-var VERSION = 0.2;
+var VERSION = 0.21;
 
 $(document).ready(function () {
     document.title = "IdleFive";
@@ -27,7 +27,7 @@ var p = {
 
 var missions = {
     0: { name: 'Pickpocketing', timer: 10, reward: 0.5, cost: 1 },
-    1: { name: 'Rob a Grocery Store', timer: 20, reward: 5, cost: 10 },
+    1: { name: 'Rob a Grocery Store', timer: 20, reward: 5, cost: 15 },
     2: { name: 'Street Race', timer: 30, reward: 10, cost: 100 },
     3: { name: 'Rob an Armored Van', timer: 60, reward: 25, cost: 250 },
     4: { name: 'False Papers Factory', timer: 120, reward: 50, cost: 500 },
@@ -42,26 +42,39 @@ var missions = {
 };
 
 var upgrades = {
-    0: { name: 'Pickpocketing', missionid: 0, cost: 10, time: 1, reward: 1.1 },
-    1: { name: 'Grocery Store Robbing', missionid: 1, cost: 100, time: 2, reward: 1.1 },
-    2: { name: 'Street Races', missionid: 2, cost: 1000, time: 3, reward: 1.1 },
-    3: { name: 'Armored Vans', missionid: 3, cost: 2500, time: 6, reward: 1.1 },
-    4: { name: 'False Papers Factory', missionid: 4, cost: 5000, time: 12, reward: 1.1 },
-    5: { name: 'Weed Farm', missionid: 5, cost: 10000, time: 18, reward: 1.1 },
-    6: { name: 'False Money Factory', missionid: 6, cost: 20000, time: 60, reward: 1.1 },
-    7: { name: 'Meth Workshop', missionid: 7, cost: 50000, time: 90, reward: 1.1 },
-    8: { name: 'Cocaine Workshop', missionid: 8, cost: 65000, time: 120, reward: 1.1 },
-    9: { name: 'Hangar', missionid: 9, cost: 200000, time: 180, reward: 1.1 },
-    10: { name: 'Bunker', missionid: 10, cost: 1000000, time: 240, reward: 1.1 },
-    11: { name: 'Vehicle Trafficking', missionid: 11, cost: 15000000, time: 300, reward: 1.1 },
-    12: { name: 'Union Depository Robbing', missionid: 12, cost: 25000000, time: 360, reward: 1.1 },
+    0: { name: 'Pickpocketing I', missionid: 0, cost: 10, time: 1, reward: 1.1 },
+    1: { name: 'Grocery Store Robbing I', missionid: 1, cost: 150, time: 2, reward: 1.1 },
+    2: { name: 'Street Races I', missionid: 2, cost: 1000, time: 3, reward: 1.1 },
+    3: { name: 'Armored Vans I', missionid: 3, cost: 2500, time: 6, reward: 1.1 },
+    4: { name: 'False Papers Factory I', missionid: 4, cost: 5000, time: 12, reward: 1.1 },
+    5: { name: 'Weed Farm I', missionid: 5, cost: 10000, time: 18, reward: 1.1 },
+    6: { name: 'False Money Factory I', missionid: 6, cost: 20000, time: 60, reward: 1.1 },
+    7: { name: 'Meth Workshop I', missionid: 7, cost: 50000, time: 90, reward: 1.1 },
+    8: { name: 'Cocaine Workshop I', missionid: 8, cost: 65000, time: 120, reward: 1.1 },
+    9: { name: 'Hangar I', missionid: 9, cost: 200000, time: 180, reward: 1.1 },
+    10: { name: 'Bunker I', missionid: 10, cost: 1000000, time: 240, reward: 1.1 },
+    11: { name: 'Vehicle Trafficking I', missionid: 11, cost: 5000000, time: 300, reward: 1.1 },
+    12: { name: 'Union Depository Robbing I', missionid: 12, cost: 10000000, time: 360, reward: 1.1 },
+    13: { name: 'Pickpocketing II', missionid: 0, cost: 20, time: 2, reward: 1.25 },
+    14: { name: 'Grocery Store Robbing II', missionid: 1, cost: 300, time: 4, reward: 1.25 },
+    15: { name: 'Street Races II', missionid: 2, cost: 2000, time: 6, reward: 1.25 },
+    16: { name: 'Armored Vans II', missionid: 3, cost: 5000, time: 12, reward: 1.25 },
+    17: { name: 'False Papers Factory II', missionid: 4, cost: 10000, time: 24, reward: 1.25 },
+    18: { name: 'Weed Farm II', missionid: 5, cost: 20000, time: 36, reward: 1.25 },
+    19: { name: 'False Money Factory II', missionid: 6, cost: 40000, time: 120, reward: 1.25 },
+    20: { name: 'Meth Workshop II', missionid: 7, cost: 100000, time: 180, reward: 1.25 },
+    21: { name: 'Cocaine Workshop II', missionid: 8, cost: 13000, time: 240, reward: 1.25 },
+    22: { name: 'Hangar II', missionid: 9, cost: 400000, time: 360, reward: 1.25 },
+    23: { name: 'Bunker II', missionid: 10, cost: 2000000, time: 480, reward: 1.25 },
+    24: { name: 'Vehicle Trafficking II', missionid: 11, cost: 10000000, time: 600, reward: 1.25 },
+    25: { name: 'Union Depository Robbing II', missionid: 12, cost: 20000000, time: 720, reward: 1.25 },
 };
 
 
 var TutorialText = {
     1: { text: "Hi man, welcome to Los Santos !<br>Did you have a job yet ?.. Anyway to get a little bit of cash?<br>Okay, let me help you then.<br> First, launch the mission called 'Pickpocketing' !" },
     2: { text: "Good job !<br>Now that you have a mission to do, you will get some money.<br>But i think it'll not be enough for you to live properly.<br>Find a way in your office to fix this problem!" },
-    3: { text: "Okay, now you can live by your own, have fun in Los Santos !"},
+    3: { text: "You did well here, i think that you can now live by your own, have fun in Los Santos !"},
     4: { text: "None" },
     5: { text: "None" },
 };
@@ -93,22 +106,21 @@ function BuyUpgrade(id) {
         if (p.cash >= upgrades[id].cost) {
             p.cash -= upgrades[id].cost;
             p.MissionMultiplier[upgrades[id].missionid] += upgrades[id].reward;
-            p.TimeReducer[upgrades[id].missionid] = upgrades[id].time;
+            p.TimeReducer[upgrades[id].missionid] += upgrades[id].time;
             p.upgradeBuyed[id] = 1;
         }
     }
 }
 
-
 function checkRP() {
     if (p.rp >= p.maxrp) {
         p.rp -= p.maxrp;
         p.rank++;
-        if (p.rank < 5) { p.maxrp = p.rank * 100; }
-        if (p.rank > 4) { p.maxrp = p.rank * 200; }
-        if (p.rank > 49) { p.maxrp = p.maxrp + 50000; }
-        if (p.rank > 99) { p.maxrp = p.maxrp + 1000000; }
     }
+    if (p.rank < 5) { p.maxrp = p.rank * 100; }
+    if (p.rank > 4) { p.maxrp = p.rank * 200; }
+    if (p.rank > 49) { p.maxrp = p.rank * 300; }
+    if (p.rank > 99) { p.maxrp = p.rank * 500; }
     if (p.rp >= p.maxrp) { checkRP(); }
 }
 

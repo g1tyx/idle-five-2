@@ -135,8 +135,8 @@ var restoreSave = function(save){
 };
 
 var confirmReset = function() {
-    var input = prompt("To start a new game please write 6", "");
-    if (input == 6) {
+    var input = prompt("To start a new game please write 5", "");
+    if (input == 5) {
         canSave = 0;
         localStorage.clear();
         location.reload();

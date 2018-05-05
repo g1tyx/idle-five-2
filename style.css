@@ -4,15 +4,14 @@ body {
 	font-family: Maven Pro;
     cursor: url("images/normal.cur"), pointer;
     color: #FFF;
-    margin: 0;
     background-image: url(images/bg.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     overflow: hidden;
     outline: none;
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
 }
 
 .menu-up {
@@ -38,8 +37,9 @@ body {
 }
 
 .menu-tabs {
-	background: rgba(0, 0, 0, 0.5);
-    height: 6.5%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 1;
+    margin-top: 0.3%;
     color: #FFF;
     font-size: large;
     left: 10%;
@@ -48,14 +48,23 @@ body {
     position: absolute;
 }
 
+.container {
+    position: absolute;
+    top: 7.5%;
+    left: 10%;
+    bottom: 0%;
+    right: 10%;
+    background: rgba(0, 0, 0, 0.5); }
+
 .game {
-    background: rgba(0, 0, 0, 0.5);
-    height: 86.5%;
+    background: rgba(0, 0, 0, 0);
+    bottom: 0%;
     color: #FFF;
     font-size: 2vh;
     left: 10%;
-    top: 14%;
-    width: 80%;
+    top: 13%;
+    margin-top: 0.6%;
+    right: 10%;
     position: absolute;
     overflow: auto;
 }
@@ -93,32 +102,35 @@ body {
 	color: #FFF;
     border-style: solid;
     border-color: #00000000;
-    border-width: 0 0 0.5vh 0;
+    border-width: 0;
     float: left;
-    cursor: url("images/hand.cur"), pointer;
-    font-size: 2vh;
-    font-family: Maven Pro;
-    padding: 1.56vh;
+    font-size: 2.5vh;
+    line-height: 0vh;
+    font-family: Pricedown;
+    padding: 1.3vh;
     width: 25%;
 
 }
 
 .button1:hover {
+    background-color: rgba(0, 40, 0, 0.2);
     color: rgb(56, 163, 56);
     text-shadow: 0 0 2vh rgb(31, 177, 51);
     cursor: url("images/hand.cur"), pointer;
-    border-width: 0 0 0.5vh 0;
-    border-color: #2e691f;
+    border-width: 0;
+    border-color: #00000000;
     border-radius: 0.75vh;
 }
 
 .button1.active {
+    background-color: rgba(0, 40, 0, 0.2);
     color: rgb(56, 163, 56);
     text-shadow: 0 0 2vh rgb(31, 177, 51);
-    cursor: url("images/hand.cur"), pointer;
-    border-width: 0 0 0.5vh 0;
-    border-color: #2e691f;
+    border-color: rgb(0, 90, 0);
     border-radius: 0.75vh;
+    -webkit-animation:shadowstyle 2000ms linear infinite;
+    -moz-animation:shadowstyle 2000ms linear infinite;
+    animation:shadowstyle 2000ms linear infinite;
 }
 
 button:focus {outline:0;}
@@ -166,10 +178,11 @@ p {
 
 .organization {
 	background:none;
-	background-color: rgba(0,0,0,0.80);
+    background-color: rgba(255,255,255,0.20);
+    border: 0.2vh solid rgba(255,255,255,0.40);
 	border: 0;
 	margin-top: 1vh;
-	margin-bottom: 1vhw;
+	margin-bottom: 1vh;
 	color: rgb(255, 255, 255); 
 	border-radius: 1.5vh;
 	font-size: 1.5vh;
@@ -195,10 +208,10 @@ p {
     overflow: auto;
     position: relative;
     border-width: 0 0.1vh 0 0.1vh;
-    border-color: #7dff6d7a;
     border-style: solid;
     background-size: cover;
-    background-image: linear-gradient(to bottom,#37662373 , #204b299e , #0f531eab );
+    border-color: rgba(150, 150, 150, 0.55);
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 0.3vh;
     transition: transform .3s ease-out;
     /* height: 90%; */
@@ -227,42 +240,38 @@ p {
 
 .icon1 {
     background-image: url(images/missions.png);
-    background-position: left;
+    background-position: bottom;
+    background-position-y: 1.2vh;
     background-repeat: no-repeat;
-    margin-left: 2vw;
-    margin-right: 0vw;
     background-size: 2.5vh;
-    height: 2.5vh;
+    height: 3.5vh;
 }
 
 .icon2 {
     background-image: url(images/stockmarket.png);
-    background-position: left;
+    background-position: bottom;
+    background-position-y: 1.2vh;
     background-repeat: no-repeat;
-    margin-left: 2vw;
-    margin-right: 0vw;
     background-size: 2.5vh;
-    height: 2.5vh;
+    height: 3.5vh;
 }
 
 .icon3 {
     background-image: url(images/management.png);
-    background-position: right;
+    background-position: bottom;
+    background-position-y: 1.2vh;
     background-repeat: no-repeat;
-    margin-left: 0vw;
-    margin-right: 2vw;
     background-size: 2.5vh;
-    height: 2.5vh;
+    height: 3.5vh;
 }
 
 .icon4 {
     background-image: url(images/statistics.png);
-    background-position: right;
+    background-position: bottom;
+    background-position-y: 1.2vh;
     background-repeat: no-repeat;
-    margin-left: 0vw;
-    margin-right: 2vw;
     background-size: 2.5vh;
-    height: 2.5vh;
+    height: 3.5vh;
 }
 
 .icon5 {
@@ -287,7 +296,7 @@ p {
     border-radius: 1vh;
     cursor: url("images/hand.cur"), pointer;
     font-size: 2vh;
-    font-family: Maven Pro;
+    font-family: Rajdhani;
     padding: 1.56vh;
     width: 48%;
     border: none;
@@ -309,7 +318,7 @@ p {
     border-radius: 1vh;
     cursor: url("images/hand.cur"), pointer;
     font-size: 2vh;
-    font-family: Maven Pro;
+    font-family: Rajdhani;
     padding: 1.56vh;
     width: 98%;
     margin-left: 1%;
@@ -336,29 +345,34 @@ textarea {
     height:2vh;
 }
 
-.gameinfos {
-    position: absolute;
-    bottom: 0%;
-    width: 100%;
-}
-
 .content {
     background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
-    margin: 0.5% 1% 0% 1%;
-    padding: 0.5vh 0vh 1.5vh 0vh;
+    margin: 0% 1% 0% 1%;
+    padding: 0vh 0vh 0.1vh 0vh;
     border-radius: 1vh;
 }
 
 .content2 {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.2) 100%);
+    background-color: rgba(255, 255, 255, 0.03);
     text-align: center;
     margin: 1% 1% 1% 1%;
     padding: 0.5% 0% 1% 0%;
     border-width: 0vh 0vh 0.1vh 0vh;
-    border-color: rgba(255, 255, 255, 0.55);
+    border-color: rgba(150, 150, 150, 0.55);
     border-style: solid;
-    border-radius: 1vh;
+    border-radius: 1%;
+}
+
+.content3 {
+    border-color: rgba(150, 150, 150, 0.55);
+    background-color: rgba(255, 255, 255, 0.03);
+    text-align: center;
+    margin: 1% 1% 1% 1%;
+    padding: 0.5% 0% 1% 0%;
+    border-width: 0vh 0.1vh 0vh 0.1vh;
+    border-style: solid;
+    border-radius: 0.1vh;
 }
 
 ::-webkit-scrollbar {
@@ -387,6 +401,11 @@ textarea {
 
 .gris {
 	color: rgb(150, 150, 150);
+}
+
+.gris2 {
+    color: rgb(50, 50, 50);
+    text-shadow: 0 0 2vh rgb(0, 0, 0);
 }
 
 .rouge {
@@ -418,9 +437,8 @@ textarea {
 	color: #ffffff;
     border-radius: 1vh;
     outline: none;
-    cursor: url("images/hand.cur"), pointer;
     font-size: 2vh;
-    font-family: Maven Pro;
+    font-family:Rajdhani;
     padding: 1.56vh;
     width: 48%;
     border: none;
@@ -480,3 +498,25 @@ textarea {
     font-family: Maven Pro;
 }
 
+@keyframes shadowstyle { 
+    0% {
+        border-width: 0vh 0.1vh 0vh 0.1vh;
+        border-color: rgb(0, 90, 0);
+    }
+    25% { 
+        border-width: 0vh 0.1vh 0vh 0.1vh;
+        border-color: rgb(0, 105, 0);
+    }
+    50% { 
+        border-width: 0vh 0.1vh 0vh 0.1vh;
+        border-color: rgb(0, 120, 0);
+    }
+    75% { 
+        border-width: 0vh 0.1vh 0vh 0.1vh;
+        border-color: rgb(0, 135, 0);
+    }
+    100% { 
+        border-width: 0vh 0.1vh 0vh 0.1vh;
+        border-color: rgb(0, 115, 0);
+    }
+}

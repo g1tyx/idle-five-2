@@ -1,18 +1,30 @@
 function hidemenus() {
     for (var i = 1; i < 5; i++) {
-        document.getElementById('tab' + i).style.display = 'none';
+        $("#tab" + i).hide();
         $("#" + i).removeClass("active");
     }
 }
 
+function clearmenus() {
+    for (var i = 1; i < 5; i++) {
+        $("#tab" + i).hide();
+        $("#" + i).removeClass("active");
+        $("#" + i).hide();
+    }
+}
+
+function showbuttons() {
+    for (var i = 1; i < 5; i++) {
+        $("#" + i).show();
+    }
+}
+
 function UpdateUI() {
-    var count = p.missionStarted;
-    var totalmission = count[0] + count[1] + count[2] + count[3] + count[4] + count[5] + count[6] + count[7] + count[8] + count[9] + count[10] + count[11] + count[12];
     $("#CashOnScreen").html("<div class='icon5'></div> $" + fixing(p.cash, 2));
     $("#RPOnScreen").html("<div class='icon6'></div>" + fixing(p.rp, 3) + "/" + fixing(p.maxrp, 3));
-    $('#gameinfos').html('Version ' + VERSION + "<br>Created by Aizen_");
+    $('#gameinfos').html('Version <font class=""' + VERSION + "<br>Created by <font class='rouge'>Soleil_Rouge</font>");
     $("#TimeText").html("You started the " + p.DateStarted + " and played for <font class'type2'>" + toHHMMSS(p.playTime) + "</font>");
-    $("#MissionInProgress").html("<font class='type2 jaune'>" + totalmission + "/13</font> Missions in progress<br><font class='jaune type2'>" + p.completed + "</font> missions completed.");
+    $("#MissionInProgress").html("<font class='type2 jaune'>" + p.missionLaunched + "/13</font> missions in progress (<font class='type2 jaune'>" + p.upgradesBought + "</font> upgrades bought)<br><font class='jaune type2'>" + p.completed + "</font> missions completed");
     $("#CurrentRank").html("Rank <font class='rp'>" + fixing(p.rank, 3) + "</font>");
     for (var i = 0; i < 13; i++) {
         name = missions[i].name;
@@ -21,14 +33,16 @@ function UpdateUI() {
         time = toHHMMSS(missions[i].timer - p.TimeReducer[i]);
 
         if (p.missionStarted[i] == 1) {
-            $("#MissionStats" + i).html("<font class='type1'>" + name + "</font> produce <font class='vert type2'>$" + reward + "</font> and give <font class='rp type2'>" + rp + " RP</font> in <font class='jaune type2'>" + time + "</font>");
+            $("#MissionStats" + i).html("<font class='type1'>" + name + "</font> produce <font class='vert type2'>$" + reward + "</font> and give <font class='rp type2'>" + rp + " RP</font> every <font class='jaune type2'>" + time + "</font>");
         } else {
-            $("#MissionStats" + i).html("<font class='type1 gris'>" + name + "</font> can product <font class='gris type2'>$" + reward + "</font> and give <font class='gris type2'>" + rp + " RP</font> in <font class='gris type2'>" + time + "</font>");
+            $("#MissionStats" + i).html("<font class='type1 gris'>" + name + "</font> can product <font class='gris type2'>$" + reward + "</font> and give <font class='gris type2'>" + rp + " RP</font> every <font class='gris type2'>" + time + "</font>");
         }
     }
     save();
-    OfficeList();
     MissionsList();
+    PrestigeList();
+    StocksList();
+    OfficeList();
 }
 
 function MissionsList() {
@@ -45,8 +59,9 @@ function MissionsList() {
             if (remains == 0) { GetReward(i); }
         } else {
             var canBuy = mission.cost > p.cash ? 'rouge' : 'vert';
-            name = " blanc'>" + mission.name;
-            cost = "Cost to launch : <font class='type2 " + canBuy + "'>$" + fixing(mission.cost, 2);
+            var canBuy2 = mission.cost > p.cash ? 'gris2' : 'blanc';
+            name = " " + canBuy2 + "'>" + mission.name;
+            cost = "Cost to launch : <font class='type2 " + canBuy + "'>$" + fixing(getMissionCost(i), 2);
             reward = "Produce <font class='gris type2'>$" + fixing(mission.reward * p.MissionMultiplier[i], 1) + "</font>";
             time = " every <font class='gris type2'> " + toHHMMSS(mission.timer);
         }
@@ -107,9 +122,60 @@ function OfficeList() {
     }
 }
 
-function ShowTutorial(id) {
-    hidemenus();
-    var text = TutorialText[id];
-    document.getElementById('overlay').style.display = 'block';
-    $('#tutorialtext').html(text);
+function ShowAlert(title, id) {
+    clearmenus();
+    var text = AlertText[id];
+    $("#alert").show();
+    $('#alerttitle').html(title);
+    $('#alerttext').html(text);
 }
+
+function WelcomeText(title) {
+    clearmenus();
+    $("#welcome").show();
+    $('#welcometitle').html(title);
+    $('#welcometext').html(WelcomeTextt);
+}
+
+function StocksList() {
+    $('#StocksBoard').html("");
+    for (var i in stocks) {
+        var stock = stocks[i];
+
+        if (stock.action == 0) { type = "multiply RP gained by <font class='rp type2'>"; }
+        if (stock.action == 1) { type = "multiply Cash gained by <font class='vert type2'>"; }
+        if (stock.action == 2) { type = "Prices multiplied by <font class='jaune type2'>"; }
+
+        var value = type + stock.value * p.prestige;
+
+        var stocksDIV = $(
+            "<div class='content3'>" +
+            "<p class='text-title blanc'>" + stock.name + "</p><br>" +
+            "<p class='text-normal'>" + value + "</font></p>" +
+            "</div>"
+        );
+        $('#StocksBoard').append(stocksDIV);
+    }
+}
+
+function PrestigeList() {
+    $('#PrestigeBoard').html("");
+
+    var canBuy = getPrestigePrice() > p.cash ? ' disabled' : '';
+    var canBuy2 = getPrestigePrice2() > p.rank ? ' disabled' : '';
+    var cost = fixing(getPrestigePrice(), 2);
+    var cost2 = fixing(getPrestigePrice2(), 3);
+
+    var prestigeDIV = $(
+        "<div class='content3'>" +
+        "<p class='text-title blanc'>" + p.name + "</p><br>" +
+        "<p class='text-normal'>Owned actions : <font class='type2 gris2 blanc'>" + p.prestige + "</font></p>" +
+        "<p class='text-normal'>Price : <font class='type2 vert'>$" + cost + "</font></p>" +
+        "<p class='text-normal'>Reputation needed : <font style='font-size:2.25vh;' class='type1'>Rank " + cost2 + "</font></p>" +
+        "<input type='button' class='button4" + canBuy + canBuy2 + "' value='Buy a new action!' onClick='BuyActions()'></input>" +
+        "</div>"
+    );
+    $('#PrestigeBoard').append(prestigeDIV);
+}
+
+//ADD UPGRADES PRICES MULT, DIV PRESTIGE, FONCTIONS ACHAT PRESTIGE

@@ -2,14 +2,25 @@ function loadAllEvents() {
     $("#menu").on("click", "button", function () {
         var id = $(this).data('id');
         hidemenus();
-        document.getElementById('tab' + id).style.display = 'block';
-        $("#"+id).addClass("active");
+        $("#tab" + id).show();
+        $("#" + id).addClass("active");
     });
-    $("#overlay").on("click", "input", function () {
-        document.getElementById('overlay').style.display = 'none';
-        $("#tutorialtext").html("");
+    $("#alert").on("click", "input", function () {
+        $("#alert").hide();
         p.TutorialStep++;
-        document.getElementById('tab1').style.display = 'block';
+        $("#tab1").show();
         $("#1").addClass("active");
+        showbuttons();
     });
+    $("#welcome").on("click", "#btnCloseWelcome", function () {
+        $("#welcome").hide();
+        p.name = $("#playername").val();
+        p.TutorialStep++;
+        $("#tab1").show();
+        $("#1").addClass("active");
+        showbuttons();
+    });
+    $("#saveedit").on("click", "#btnReset", function() { confirmReset(); });
+    $("#saveedit").on("click", "#btnImport", function() { importSave(); });
+    $("#saveedit").on("click", "#btnExport", function() { exportSave(); });
 }

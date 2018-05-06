@@ -241,7 +241,7 @@ p {
 .icon1 {
     background-image: url(images/missions.png);
     background-position: bottom;
-    background-position-y: 1.2vh;
+    background-position-y: 1.5vh;
     background-repeat: no-repeat;
     background-size: 2.5vh;
     height: 3.5vh;
@@ -250,7 +250,7 @@ p {
 .icon2 {
     background-image: url(images/stockmarket.png);
     background-position: bottom;
-    background-position-y: 1.2vh;
+    background-position-y: 1.5vh;
     background-repeat: no-repeat;
     background-size: 2.5vh;
     height: 3.5vh;
@@ -259,7 +259,7 @@ p {
 .icon3 {
     background-image: url(images/management.png);
     background-position: bottom;
-    background-position-y: 1.2vh;
+    background-position-y: 1.5vh;
     background-repeat: no-repeat;
     background-size: 2.5vh;
     height: 3.5vh;
@@ -268,7 +268,7 @@ p {
 .icon4 {
     background-image: url(images/statistics.png);
     background-position: bottom;
-    background-position-y: 1.2vh;
+    background-position-y: 1.5vh;
     background-repeat: no-repeat;
     background-size: 2.5vh;
     height: 3.5vh;
@@ -277,7 +277,7 @@ p {
 .icon7 {
     background-image: url(images/none.png);
     background-position: bottom;
-    background-position-y: 1.2vh;
+    background-position-y: 1.5vh;
     background-repeat: no-repeat;
     background-size: 2.5vh;
     height: 3.5vh;

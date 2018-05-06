@@ -357,7 +357,7 @@ textarea {
 .content {
     background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
-    margin: 0% 1% 0% 1%;
+    margin: 0% 1% 1% 1%;
     padding: 0vh 0vh 0.1vh 0vh;
     border-radius: 1vh;
 }

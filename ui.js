@@ -20,8 +20,8 @@ function showbuttons() {
 }
 
 function UpdateUI() {
-    $("#CashOnScreen").html("<div class='icon5'></div> $" + fixing(p.cash, 2));
-    $("#RPOnScreen").html("<div class='icon6'></div>" + fixing(p.rp, 3) + "/" + fixing(p.maxrp, 3));
+    $("#CashOnScreen").html("<div class='icon5'></div> <font class='bold'>$" + fixing(p.cash, 2) + "</font>");
+    $("#RPOnScreen").html("<div class='icon6'></div><font class='bold'>" + fixing(p.rp, 3) + "</font>/" + fixing(p.maxrp, 3));
     $('#gameinfos').html('Version <font class=""' + VERSION + "<br>Created by <font class='rouge'>Soleil_Rouge</font>");
     $("#TimeText").html("You started the " + p.DateStarted + " and played for <font class'type2'>" + toHHMMSS(p.playTime) + "</font>");
     $("#MissionInProgress").html("<font class='type2 jaune'>" + p.missionLaunched + "/13</font> missions in progress (<font class='type2 jaune'>" + p.upgradesBought + "/65</font> upgrades bought)<br><font class='jaune type2'>" + p.completed + "</font> missions completed");
@@ -35,7 +35,7 @@ function UpdateUI() {
         if (p.missionStarted[i] == 1) {
             $("#MissionStats" + i).html("<font class='type1'>" + name + "</font> produce <font class='vert type2'>$" + reward + "</font> and give <font class='rp type2'>" + rp + " RP</font> every <font class='jaune type2'>" + time + "</font>");
         } else {
-            $("#MissionStats" + i).html("<font class='type1 gris'>" + name + "</font> can product <font class='gris type2'>$" + reward + "</font> and give <font class='gris type2'>" + rp + " RP</font> every <font class='gris type2'>" + time + "</font>");
+            $("#MissionStats" + i).html("<font class='type1 gris bold'>" + name + "</font> can product <font class='gris bold type2'>$" + reward + "</font> and give <font class='gris bold type2'>" + rp + " RP</font> every <font class='gris bold type2'>" + time + "</font>");
         }
     }
     save();

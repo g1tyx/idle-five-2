@@ -1,12 +1,12 @@
 function hidemenus() {
-    for (var i = 1; i < 5; i++) {
+    for (var i = 1; i < 6; i++) {
         $("#tab" + i).hide();
         $("#" + i).removeClass("active");
     }
 }
 
 function clearmenus() {
-    for (var i = 1; i < 5; i++) {
+    for (var i = 1; i < 6; i++) {
         $("#tab" + i).hide();
         $("#" + i).removeClass("active");
         $("#" + i).hide();
@@ -14,7 +14,7 @@ function clearmenus() {
 }
 
 function showbuttons() {
-    for (var i = 1; i < 5; i++) {
+    for (var i = 1; i < 6; i++) {
         $("#" + i).show();
     }
 }
@@ -24,7 +24,7 @@ function UpdateUI() {
     $("#RPOnScreen").html("<div class='icon6'></div>" + fixing(p.rp, 3) + "/" + fixing(p.maxrp, 3));
     $('#gameinfos').html('Version <font class=""' + VERSION + "<br>Created by <font class='rouge'>Soleil_Rouge</font>");
     $("#TimeText").html("You started the " + p.DateStarted + " and played for <font class'type2'>" + toHHMMSS(p.playTime) + "</font>");
-    $("#MissionInProgress").html("<font class='type2 jaune'>" + p.missionLaunched + "/13</font> missions in progress (<font class='type2 jaune'>" + p.upgradesBought + "</font> upgrades bought)<br><font class='jaune type2'>" + p.completed + "</font> missions completed");
+    $("#MissionInProgress").html("<font class='type2 jaune'>" + p.missionLaunched + "/13</font> missions in progress (<font class='type2 jaune'>" + p.upgradesBought + "/65</font> upgrades bought)<br><font class='jaune type2'>" + p.completed + "</font> missions completed");
     $("#CurrentRank").html("Rank <font class='rp'>" + fixing(p.rank, 3) + "</font>");
     for (var i = 0; i < 13; i++) {
         name = missions[i].name;
@@ -58,15 +58,15 @@ function MissionsList() {
             time = " in <font class='jaune type2'>" + toHHMMSS(remains);
             if (remains == 0) { GetReward(i); }
         } else {
-            var canBuy = mission.cost > p.cash ? 'rouge' : 'vert';
-            var canBuy2 = mission.cost > p.cash ? 'gris2' : 'blanc';
+            canBuy = mission.cost * p.priceMult > p.cash ? 'rouge' : 'vert';
+            canBuy2 = mission.cost * p.priceMult > p.cash ? 'gris2' : 'blanc';
             name = " " + canBuy2 + "'>" + mission.name;
-            cost = "Cost to launch : <font class='type2 " + canBuy + "'>$" + fixing(getMissionCost(i), 2);
+            cost = "Cost to launch : <font class='type2 " + canBuy + "'>$" + fixing(getMissionCost(i), 3);
             reward = "Produce <font class='gris type2'>$" + fixing(mission.reward * p.MissionMultiplier[i], 1) + "</font>";
             time = " every <font class='gris type2'> " + toHHMMSS(mission.timer);
         }
 
-        var canLaunch = mission.cost > p.cash ? ' disabled' : '';
+        var canLaunch = mission.cost * p.priceMult > p.cash ? ' disabled' : '';
         var bought = p.missionStarted[i] > 0 ? ' disabled' : '';
 
         var missionsDIV = $(
@@ -99,16 +99,16 @@ function OfficeList() {
                 if (p.upgradeBuyed[upgrade.req] == 1) { viewable = 1; }
                 else { viewable = 0; }
             }
-            var canBuy = upgrade.cost > p.cash ? 'rouge' : 'vert';
+            canBuy = upgrade.cost * p.priceMult > p.cash ? ' rouge' : ' vert';
             name = " blanc'>" + upgrade.name;
-            cost = "Cost to upgrade : <font class='type2 " + canBuy + "'>$" + fixing(upgrade.cost, 2);
+            cost = "Cost to upgrade : <font class='type2 " + canBuy + "'>$" + fixing(upgrade.cost * p.priceMult, 2);
             reward = "Multiply rewards by <font class='gris type2'> x" + fixing(upgrade.reward, 1) + "</font>";
             time = " and reduce time by <font class='gris type2'> " + toHHMMSS(upgrade.time);
         }
 
-        var canAdd = upgrade.cost > p.cash ? ' disabled' : '';
-        var MissionBought = p.missionStarted[upgrade.missionid] > 0 ? '' : ' style="display:none;"';
-        var view = viewable == 1 ? '' : ' style="display:none;"';
+        canAdd = upgrade.cost * p.priceMult > p.cash ? ' disabled' : '';
+        MissionBought = p.missionStarted[upgrade.missionid] > 0 ? '' : ' style="display:none;"';
+        view = viewable == 1 ? '' : ' style="display:none;"';
 
         var officeDIV = $(
             "<div class='content2'" + view + MissionBought + ">" +
@@ -130,11 +130,12 @@ function ShowAlert(title, id) {
     $('#alerttext').html(text);
 }
 
-function WelcomeText(title) {
+function WelcomeText(title, id) {
     clearmenus();
     $("#welcome").show();
     $('#welcometitle').html(title);
-    $('#welcometext').html(WelcomeTextt);
+    $('#welcometext').html(WelcomeTexts[id]);
+    $("#playername").val(p.name);
 }
 
 function StocksList() {
@@ -142,12 +143,11 @@ function StocksList() {
     for (var i in stocks) {
         var stock = stocks[i];
 
-        if (stock.action == 0) { type = "multiply RP gained by <font class='rp type2'>"; }
-        if (stock.action == 1) { type = "multiply Cash gained by <font class='vert type2'>"; }
+        if (stock.action == 0) { type = "multiply RP gained by <font class=' rp type2'>"; }
+        if (stock.action == 1) { type = "multiply cash gained by <font class='vert type2'>"; }
         if (stock.action == 2) { type = "Prices multiplied by <font class='jaune type2'>"; }
 
-        var value = type + stock.value * p.prestige;
-
+        var value = type + fixing(1 + (stock.value * p.prestige), 1);
         var stocksDIV = $(
             "<div class='content3'>" +
             "<p class='text-title blanc'>" + stock.name + "</p><br>" +
@@ -177,5 +177,3 @@ function PrestigeList() {
     );
     $('#PrestigeBoard').append(prestigeDIV);
 }
-
-//ADD UPGRADES PRICES MULT, DIV PRESTIGE, FONCTIONS ACHAT PRESTIGE

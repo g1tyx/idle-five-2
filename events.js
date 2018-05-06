@@ -14,8 +14,8 @@ function loadAllEvents() {
     });
     $("#welcome").on("click", "#btnCloseWelcome", function () {
         $("#welcome").hide();
+        p.completed++;
         p.name = $("#playername").val();
-        p.TutorialStep++;
         $("#tab1").show();
         $("#1").addClass("active");
         showbuttons();

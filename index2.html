@@ -8,9 +8,11 @@
     <title>IdleFive is loading...</title>
     <link href="style.css?v=0.32" rel="stylesheet" type="text/css"></link>
     <link href="mobile.css?v=0.32" rel="stylesheet" type="text/css"></link>
+<!--
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+-->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="utils.js?v=0.32"></script>
     <script type="text/javascript" src="core.js?v=0.32"></script>
     <script type="text/javascript" src="ui.js?v=0.32"></script>
@@ -19,6 +21,8 @@
 
 
 <body class="noselect" oncontextmenu="return false;">
+   <script src="chs.js"></script>
+<script src="//likexia.gitee.io/game/zh/core.js"></script>
     <div class="menu-up">
         <div class="game-title" id="game-title">idlefive</div>
         <div class="cash" id="CashOnScreen">Loading...
@@ -91,11 +95,11 @@
                 <p class="text-title blanc">save editor</p>
                 <br />
                 <p class="center" id="TimeText"></p>
-                <input type="button" id="btnReset" class="button3" value="New Account">
+                <input type="button" id="btnReset" class="button3" value="重新开始 - 如果过教程时刷新了，需要点这里重新开始">
                 <br />
                 <br />
-                <input type="button" id="btnExport" class="button2" value="Export Save" style="float: left;" />
-                <input type="button" id="btnImport" class="button2" value="Import Save" style="float: right;" />
+                <input type="button" id="btnExport" class="button2" value="导出存档" style="float: left;" />
+                <input type="button" id="btnImport" class="button2" value="导入存档" style="float: right;" />
                 <br />
                 <div id="exportBody"></div>
                 <br />
@@ -119,7 +123,7 @@
             <br />
             <p id="alerttext"></p>
             <br />
-            <input type="button" id="btnCloseTutorial" class="button2" value="Okay" />
+            <input type="button" id="btnCloseTutorial" class="button2" value="确定" />
             <br />
             <br />
         </div>
@@ -130,7 +134,7 @@
             <input id="playername" type="textarea" class="organization" cols="15" rows="1" maxlength="15"></input>
             <br />
             <br />
-            <input type="button" id="btnCloseWelcome" class="button2" value="Validate" />
+            <input type="button" id="btnCloseWelcome" class="button2" value="验证" />
             <br />
             <br />
         </div>
@@ -139,3 +143,7 @@
 </body>
 
 </html>
+<!--客服 开始-->
+<link rel="stylesheet" href="//likexia.gitee.io/game/css/kf.css" type="text/css" media="screen" charset="utf-8">
+<script src="//likexia.gitee.io/game/js/kf.js"></script>
+<!-- 客服 结束 -->

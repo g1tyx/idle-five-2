@@ -26,7 +26,7 @@ var p = {
     upgradesBought: 0,
     missionLaunched: 0,
     prestige: 0,
-    name: "Organization",
+    name: "锅巴汉化组",
 };
 
 var missions = {

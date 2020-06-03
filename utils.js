@@ -100,9 +100,9 @@ var load = function(){
 };
 
 var exportSave = function(){
-	var saveData = btoa(JSON.stringify(p));
+	var saveData = btoa(encodeURIComponent(JSON.stringify(p)));
 	window.getSelection().removeAllRanges();
-	alert("Save copied in your clipboard. (CTRL+V to paste it)");
+	alert("存档已复制到剪切板. (CTRL+V 粘贴到安全的地方)");
 	$("#exportBody").html("<textarea id='saveCode'>"+saveData+"</textarea>");
 	var textField = document.getElementById("saveCode");
 	textField.select();
@@ -112,7 +112,7 @@ var exportSave = function(){
 };
 
 var importSave = function(){
-    var save = prompt("Paste the code previously obtained here");
+    var save = prompt("在框里粘贴你的存档");
     if(save) {
 		restoreSave(save);
 	}
@@ -120,7 +120,7 @@ var importSave = function(){
 
 var restoreSave = function(save){
 	try {
-		var decoded = atob(save);
+		var decoded = decodeURIComponent(atob(save));
 		JSON.parse(decoded);
 		if (decoded) {
 			localStorage.setItem("IdleFive", decoded);
@@ -135,7 +135,7 @@ var restoreSave = function(save){
 };
 
 var confirmReset = function() {
-    var input = prompt("To start a new game please write 5", "");
+    var input = prompt("输入 5 以重新开始游戏", "");
     if (input == 5) {
         canSave = 0;
         localStorage.clear();

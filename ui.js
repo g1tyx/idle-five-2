@@ -74,7 +74,7 @@ function MissionsList() {
             "<p class='text-title" + name + "</p><br>" +
             "<p class='text-normal'>" + cost + "</font></p>" +
             "<p class='text-normal'>" + reward + time + "</font></p>" +
-            "<input type='button' class='button4" + canLaunch + bought + "' value='Launch the mission' onClick='LaunchMission(" + i + ")'></input>" +
+            "<input type='button' class='button4" + canLaunch + bought + "' value='启动任务' onClick='LaunchMission(" + i + ")'></input>" +
             "</div>"
         );
         $('#MissionsBoard').append(missionsDIV);
@@ -115,7 +115,7 @@ function OfficeList() {
             "<p class='text-title" + name + "</p><br>" +
             "<p class='text-normal'>" + cost + "</font></p>" +
             "<p class='text-normal'>" + reward + time + "</font></p>" +
-            "<input type='button' class='button4" + canAdd + "' value='Buy it!' onClick='BuyUpgrade(" + i + ")'></input>" +
+            "<input type='button' class='button4" + canAdd + "' value='购买!' onClick='BuyUpgrade(" + i + ")'></input>" +
             "</div>"
         );
         $('#OfficeBoard').append(officeDIV);

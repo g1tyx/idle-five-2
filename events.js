@@ -23,4 +23,5 @@ function loadAllEvents() {
     $("#saveedit").on("click", "#btnReset", function() { confirmReset(); });
     $("#saveedit").on("click", "#btnImport", function() { importSave(); });
     $("#saveedit").on("click", "#btnExport", function() { exportSave(); });
+//$('#btnCloseWelcome').trigger('click');
 }

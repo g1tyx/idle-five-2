@@ -46,7 +46,7 @@ var cnItems = {
     'save editor': '存档编辑器',
     'stock Market': '股票市场',
     'statistics': '统计',
-    'stocks management': '股票经理',
+    'stocks management': '股票管理',
     'upgrades bought': '购买的升级',
     'Version': '版本',
     'game infos': '游戏信息',

@@ -1,7 +1,7 @@
 var VERSION = 0.32;
 
 $(document).ready(function () {
-    document.title = "IdleFive v" + VERSION;
+    document.title = "铁拳放置 v" + VERSION;
     loadAllEvents();
     if (localStorage.getItem("IdleFive") != null) { load(); }
     UpdateUI();

@@ -76,7 +76,7 @@ var cnItems = {
     'to upgrade the rentability!': '升级收益性!',
     'you have to find a way in your': '你必须在你的 ',
     'Product': '生产 ',
-    'produce': '生产',
+    'produce': '生产 ',
     'Now that you started this mission, you can gain money.': '既然你开始了这个任务，你就可以赚钱了。',
     'But i think it\'ll not be enough for now so,': '但我认为现在还不够，',
     'Good job !': '干得好!',

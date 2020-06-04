@@ -12,7 +12,7 @@ var cnItems = {
     _OTHER_: [],
 
     //未分类：
-    'every': '每个 ',
+    'every': '每 ',
     'Cost to launch': '启动费用',
     'Cost to upgrade': '升级费用',
     'Cocaine Workshop': '可卡因车间',

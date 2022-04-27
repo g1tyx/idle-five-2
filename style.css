@@ -1,0 +1,540 @@
+@font-face { font-family: Pricedown; src: url(pricedown.ttf); }
+
+body {
+	font-family: Maven Pro;
+    cursor: url("images/normal.cur"), pointer;
+    color: #FFF;
+    background-image: url(images/bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-up {
+    background-image: linear-gradient(to right, #3a6f44 10%, #438a42 80%, #1e3a1794 100%);
+    height: 7%;
+    color: #FFF;
+    font-size: large;
+    left: 10%;
+    top: 0%;
+    width: 80%;
+    position: absolute;
+}
+
+.menu-bar {
+    position: absolute;
+    top: 7%;
+    height: 0.5%;
+    width: 80%;
+    left: 10%;
+    background-image: linear-gradient(to right, #30801d 0%, #2d793e 20%, #428a2f 100%);
+    border-style: none;
+    border-radius: 0;
+}
+
+.menu-tabs {
+    background: rgba(0, 0, 0, 0);
+    z-index: 1;
+    margin-top: 0.3%;
+    color: #FFF;
+    font-size: large;
+    left: 10%;
+    top: 7.5%;
+    width: 80%;
+    position: absolute;
+}
+
+.container {
+    position: absolute;
+    top: 7.5%;
+    left: 10%;
+    bottom: 0%;
+    right: 10%;
+    background: rgba(0, 0, 0, 0.5); }
+
+.game {
+    background: rgba(0, 0, 0, 0);
+    bottom: 0%;
+    color: #FFF;
+    font-size: 2vh;
+    left: 10%;
+    top: 13%;
+    margin-top: 0.6%;
+    right: 10%;
+    position: absolute;
+    overflow: auto;
+}
+
+.game-title {
+	color: #FFF;
+	font-family: Pricedown;
+	float: left;
+	position: relative;
+	font-size: 5vh;
+	top: 1%;
+	left: 0.5%;
+}
+
+.cash {
+    font-family: Rajdhani;
+    color: #FFF;
+	text-align: center;
+	float: right;
+	font-size: 2vh;
+	position: relative;
+    top: 10%;
+    margin-left: 1%;
+    margin-right: 1%;
+	right: 0.5%;
+}
+
+.cash-title {
+    font-family: Pricedown;
+    font-size: 2.5vh;
+}
+
+.button1 {
+    background-color: rgba(255, 255, 255, 0);
+	color: #FFF;
+    border-style: solid;
+    border-color: #00000000;
+    border-width: 0;
+    float: left;
+    font-size: 2.5vh;
+    line-height: 0vh;
+    font-family: Pricedown;
+    padding: 1.3vh;
+    width: 20%;
+
+}
+
+.button1:hover {
+    background-color: rgba(0, 40, 0, 0.2);
+    color: rgb(56, 163, 56);
+    text-shadow: 0 0 2vh rgb(31, 177, 51);
+    cursor: url("images/hand.cur"), pointer;
+    border-width: 0;
+    border-color: #00000000;
+    border-radius: 0.75vh;
+}
+
+.button1.active {
+    background-color: rgba(0, 40, 0, 0.2);
+    color: rgb(56, 163, 56);
+    text-shadow: 0 0 2vh rgb(31, 177, 51);
+    border-color: rgb(0, 90, 0);
+    border-radius: 0.75vh;
+    -webkit-animation:shadowstyle 2000ms linear infinite;
+    -moz-animation:shadowstyle 2000ms linear infinite;
+    animation:shadowstyle 2000ms linear infinite;
+}
+
+button:focus {outline:0;}
+
+.center {
+	text-align: center;
+}
+
+p {
+    font-size: 1.75vh;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.bar {
+    margin-left: 1%;
+    margin-right: 1%;
+    border-radius: 4vh;
+    background: #cdffc02e;
+    box-shadow: 0 -1vh 1vh rgba(193, 255, 177, 0.22) inset;
+    border-width: 0 0 0.2vh 0;
+    border-color: #579c43;
+    border-style: solid;
+}
+
+.bar div {
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+	border-radius: 4vh;
+	box-shadow: 0 0.5vh 0.5vh #333;	
+    background-color: #3e7531;
+	background: -webkit-linear-gradient(right, #409954 10%, #146b27 80%, #17420d 100%);
+	background: -moz-linear-gradient(right, #409954 10%, #146b27 80%, #17420d 100%); 
+	background: -ms-linear-gradient(right, #409954 10%, #146b27 80%, #17420d 100%); 
+	background: -o-linear-gradient(right, #409954 10%, #146b27 80%, #17420d 100%);	
+}
+
+.organization {
+	background:none;
+    background-color: rgba(255,255,255,0.20);
+    border: 0.2vh solid rgba(255,255,255,0.40);
+	border: 0;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+	color: rgb(255, 255, 255); 
+	border-radius: 1.5vh;
+	font-size: 1.5vh;
+	font-family: Maven Pro;
+	text-align: center;
+    text-transform: capitalize;
+    padding: 1vh 2.5vh 1vh 2.5vh;
+	overflow: hidden;
+	outline: none;
+	resize:none;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    height: 100%;
+    width: 100%;
+}
+
+.tutorial {
+    overflow: auto;
+    position: relative;
+    border-width: 0 0.1vh 0 0.1vh;
+    border-style: solid;
+    background-size: cover;
+    border-color: rgba(150, 150, 150, 0.55);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.3vh;
+    transition: transform .3s ease-out;
+    /* height: 90%; */
+    left: 22.5%;
+    top: 20%;
+    bottom: 50%;
+    width: 55%;
+    color: #ffffff;
+    text-align: center;
+}
+
+.text-title {
+    font-size: 3vh;
+    font-family: Pricedown;
+    color: #2e691f;
+}
+
+.stats-title {
+    font-size: 3vh;
+    font-family: Pricedown;
+}
+
+.text-normal {
+    font-size: 1.75vh;
+}
+
+.icon1 {
+    background-image: url(images/missions.png);
+    background-position: bottom;
+    background-position-y: 1.5vh;
+    background-repeat: no-repeat;
+    background-size: 2.5vh;
+    height: 3.5vh;
+}
+
+.icon2 {
+    background-image: url(images/stockmarket.png);
+    background-position: bottom;
+    background-position-y: 1.5vh;
+    background-repeat: no-repeat;
+    background-size: 2.5vh;
+    height: 3.5vh;
+}
+
+.icon3 {
+    background-image: url(images/management.png);
+    background-position: bottom;
+    background-position-y: 1.5vh;
+    background-repeat: no-repeat;
+    background-size: 2.5vh;
+    height: 3.5vh;
+}
+
+.icon4 {
+    background-image: url(images/statistics.png);
+    background-position: bottom;
+    background-position-y: 1.5vh;
+    background-repeat: no-repeat;
+    background-size: 2.5vh;
+    height: 3.5vh;
+}
+
+.icon7 {
+    background-image: url(images/none.png);
+    background-position: bottom;
+    background-position-y: 1.5vh;
+    background-repeat: no-repeat;
+    background-size: 2.5vh;
+    height: 3.5vh;
+}
+
+.icon5 {
+    background-image: url(images/dollar.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 3.5vh;
+    height: 3.5vh;
+}
+
+.icon6 {
+    background-image: url(images/RP.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 3.5vh;
+    height: 3.5vh;
+}
+
+.button2 {
+    background-color: rgba(255, 255, 255, 1);
+	color: #2e691f;
+    border-radius: 1vh;
+    cursor: url("images/hand.cur"), pointer;
+    font-size: 2vh;
+    font-family: Rajdhani;
+    padding: 1.56vh;
+    width: 48%;
+    border: none;
+    margin-left: 1%;
+    margin-right: 1%;
+
+}
+
+.button2:hover {
+    text-shadow: 0 0 1.6vh #023609;
+    color: #749a6a;
+    cursor: url("images/hand.cur"), pointer;
+    border-radius: 1vh;
+}
+
+.button3 {
+    background-color: rgba(255, 255, 255, 1);
+	color: #2e691f;
+    border-radius: 1vh;
+    cursor: url("images/hand.cur"), pointer;
+    font-size: 2vh;
+    font-family: Rajdhani;
+    padding: 1.56vh;
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+    border: none;
+
+}
+
+.button3:hover {
+    text-shadow: 0 0 1.6vh #023609;
+    color: #749a6a;
+    cursor: url("images/hand.cur"), pointer;
+    border-radius: 1vh;
+}
+
+textarea {
+    outline: none;
+    resize: none;
+    font-size: 1.75vh;
+    overflow: hidden;
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 75vh;
+    height:2vh;
+}
+
+.content {
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin: 0% 1% 1% 1%;
+    padding: 0vh 0vh 0.1vh 0vh;
+    border-radius: 1vh;
+}
+
+.content2 {
+    background-color: rgba(255, 255, 255, 0.03);
+    text-align: center;
+    margin: 1% 1% 1% 1%;
+    padding: 0.5% 0% 1% 0%;
+    border-width: 0vh 0vh 0.1vh 0vh;
+    border-color: rgba(150, 150, 150, 0.55);
+    border-style: solid;
+    border-radius: 1%;
+}
+
+.content3 {
+    border-color: rgba(150, 150, 150, 0.55);
+    background-color: rgba(255, 255, 255, 0.03);
+    text-align: center;
+    margin: 1% 1% 1% 1%;
+    padding: 0.5% 0% 1% 0%;
+    border-width: 0vh 0.1vh 0vh 0.1vh;
+    border-style: solid;
+    border-radius: 0.1vh;
+}
+
+::-webkit-scrollbar {
+    width: 1.15vh;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0.6vh rgba(0,0,0,0.66);
+    box-shadow: inset 0 0 0.6vh rgba(0,0,0,0.66);
+    background: rgba(0,0,0,0.5);
+    border-radius: 1vh;
+    padding: 1vh;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 1vh;
+	border: 0.1vh solid rgba(0,0,0,0.5);
+    background-image: linear-gradient(to bottom,#146b27 , #409954 , #146b27 );
+    padding: 1vh;
+}
+
+.vert {
+    font-weight: bold;
+    color: rgb(56, 163, 56);
+    text-shadow: 0 0 3vh rgb(0, 130, 0);
+}
+
+.gris {
+    font-weight: bold;
+	color: rgb(150, 150, 150);
+}
+
+.gris2 {
+    color: rgb(50, 50, 50);
+    text-shadow: 0 0 2vh rgb(0, 0, 0);
+}
+
+.rouge {
+    font-weight: bold;
+    color: #dd1b1b;
+    text-shadow: 0 0 1vh #741816;
+}
+
+.jaune {
+    font-weight: bold;
+	color: #FFF000;
+}
+
+.blanc {
+    color: #FFF;
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+}
+
+.rare {
+    color: #644fff;
+    text-shadow: 0 0 2vh #6015f3;
+}
+
+.rp {
+    font-weight: bold;
+    color: #1a70d2;
+    text-shadow: 0 0 3vh rgb(6, 74, 146);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.button4 {
+    background-image: linear-gradient(to left, #17420d,#146b27, #146b27);
+	color: #ffffff;
+    border-radius: 1vh;
+    outline: none;
+    font-size: 2vh;
+    font-family:Rajdhani;
+    padding: 1.56vh;
+    width: 48%;
+    border: none;
+    margin: 1vh 1vh 0vh 1vh;
+}
+
+.button4.disabled {
+    color: rgba(0,0,0,0);
+    background-image: none;
+    background-color: rgba(0,0,0,0.40);
+    border: 0.2vh solid rgba(0,0,0,0.40);
+    display: none;
+}
+
+.button4.disabled:hover {
+    cursor: url("images/normal.cur"), pointer;
+}
+
+.button4:hover {
+    cursor: url("images/hand.cur"), pointer;
+    border-radius: 1vh;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.bigtitle {
+    font-size: 4vh;
+    font-family: Pricedown;
+    padding-bottom: 1vh;
+    color: #FFF;
+    text-shadow: 0 0 2vh #17882b;
+    text-align: center;
+}
+
+.currentrp {
+    font-size: 2.5vh;
+    font-family: Pricedown;
+    color: #FFF;
+    text-align: center;
+}
+
+.type1 {
+    font-family: Pricedown;
+}
+
+.type2 {
+    font-family: Rajdhani;
+}
+
+.type3 {
+    font-family: Maven Pro;
+}
+
+@keyframes shadowstyle { 
+    0% {
+        border-width: 0vh 0.1vh 0vh 0.1vh;
+        border-color: rgb(0, 90, 0);
+    }
+    25% { 
+        border-width: 0vh 0.1vh 0vh 0.1vh;
+        border-color: rgb(0, 105, 0);
+    }
+    50% { 
+        border-width: 0vh 0.1vh 0vh 0.1vh;
+        border-color: rgb(0, 120, 0);
+    }
+    75% { 
+        border-width: 0vh 0.1vh 0vh 0.1vh;
+        border-color: rgb(0, 135, 0);
+    }
+    100% { 
+        border-width: 0vh 0.1vh 0vh 0.1vh;
+        border-color: rgb(0, 115, 0);
+    }
+}
